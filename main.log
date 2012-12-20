@@ -1,0 +1,1137 @@
+This is pTeX, Version 3.141592-p3.1.9 (sjis) (Web2C 7.5.4) (format=platex-sjis 2005.11.2)  20 DEC 2012 14:03
+**main.tex
+(./main.tex
+pLaTeX2e <2005/01/04>+0 (based on LaTeX2e <2003/12/01> patch level 0)
+(/usr/local/share/texmf/ptex/platex/base/jreport.cls
+Document Class: jreport 2002/04/09 v1.4 Standard pLaTeX class
+\c@@paper=\count81
+(/usr/local/share/texmf-dist/tex/latex/base/fleqn.clo
+File: fleqn.clo 1998/08/17 v1.1c Standard LaTeX option (flush left equations)
+\mathindent=\dimen118
+)
+(/usr/local/share/texmf/ptex/platex/base/jsize11.clo
+File: jsize11.clo 2002/04/09 v1.4 Standard pLaTeX file (size option)
+)
+\c@part=\count82
+\c@chapter=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@subparagraph=\count88
+\c@figure=\count89
+\c@table=\count90
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 673.
+LaTeX Info: Redefining \mathrm on input line 675.
+LaTeX Info: Redefining \mathbf on input line 676.
+\toclineskip=\dimen119
+\@lnumwidth=\dimen120
+\bibindent=\dimen121
+\heisei=\count91
+)
+(/usr/local/share/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip43
+\LTright=\skip44
+\LTpre=\skip45
+\LTpost=\skip46
+\LTchunksize=\count92
+\LTcapwidth=\dimen122
+\LT@head=\box41
+\LT@firsthead=\box42
+\LT@foot=\box43
+\LT@lastfoot=\box44
+\LT@cols=\count93
+\LT@rows=\count94
+\c@LT@tables=\count95
+\c@LT@chunks=\count96
+\LT@p@ftn=\toks15
+) (./begin.tex
+(./systhesis.sty
+\vspacetitle=\dimen123
+\vspaceabstract=\dimen124
+\c@theorem=\count97
+) (/usr/local/share/texmf/ptex/platex/base/ascmac.sty
+(/usr/local/share/texmf/ptex/platex/base/tascmac.sty
+\@savetbaselineshift=\dimen125
+\@saveybaselineshift=\dimen126
+\scb@x=\box45
+\scscb@x=\box46
+\@bw=\dimen127
+\@nbox=\box47
+\@nbody=\box48
+\@scw=\dimen128
+\@itemh=\dimen129
+\@iboxpos=\toks16
+\@iboxstr=\box49
+\@bwsp=\box50
+\@@bwsp=\box51
+\@bcal=\count98
+\shaderule=\dimen130
+))
+(/usr/local/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(/usr/local/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/share/texmf-dist/tex/latex/graphics/graphics.cfg
+File: graphics.cfg 2005/02/03 v1.3 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvipdfm.def on input line 90.
+
+(/usr/local/share/texmf-dist/tex/latex/dvipdfm/dvipdfm.def
+File: dvipdfm.def 1999/9/6 vx.x Driver-dependant file
+))
+\Gin@req@height=\dimen131
+\Gin@req@width=\dimen132
+) (./main.aux
+
+LaTeX Warning: Label `Resnick1997' multiply defined.
+
+
+LaTeX Warning: Label `Joachims1996' multiply defined.
+
+)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+) (./0abstract.tex [0
+
+]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 13.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 13.
+ [1] [2] [3]) (./main.toc
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10.95> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10.95> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 2.
+ [4] [5])
+\tf@toc=\write3
+\openout3 = `main.toc'.
+
+ [6] [7]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <20.74> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 17.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <20.74> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 17.
+ (./main.lof)
+\tf@lof=\write4
+\openout4 = `main.lof'.
+
+
+[6
+
+] (./main.lot)
+\tf@lot=\write5
+\openout5 = `main.lot'.
+
+ [7
+
+] (./1introduction.tex
+第 1 章
+[1
+
+] [2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 23.
+ (/usr/local/share/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
+ [3] [4]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 103.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 103.
+ [5]
+File: figure/configuration.eps Graphic file (type eps)
+
+<figure/configuration.eps>) (./2background.tex [6]
+第 2 章
+[7
+
+] [8]
+
+LaTeX Warning: Citation `Chen1998' on page 9 undefined on input line 37.
+
+File: figure/target.eps Graphic file (type eps)
+<figure/target.eps>
+Overfull \hbox (28.39761pt too wide) in paragraph at lines 46--47
+ [] 
+ []
+
+) (./3propose.tex [9] [10]
+第 3 章
+[11
+
+] [12]
+File: figure/subjects.eps Graphic file (type eps)
+ <figure/subjects.eps>
+File: figure/systems.eps Graphic file (type eps)
+ <figure/systems.eps> [13] [14] [15])
+(./4selectbukuma.tex [16]
+第 4 章
+[17
+
+]
+File: figure/hatebu.eps Graphic file (type eps)
+ <figure/hatebu.eps> [18] [19]
+File: figure/bookmark_date1.eps Graphic file (type eps)
+ <figure/bookmark_date1.eps>
+File: figure/bookmark_date2.eps Graphic file (type eps)
+
+<figure/bookmark_date2.eps>
+File: figure/bookmark_date3.eps Graphic file (type eps)
+ <figure/bookmark_date3.eps> [20] [21]
+File: figure/type_short.eps Graphic file (type eps)
+
+<figure/type_short.eps>
+File: figure/type_long.eps Graphic file (type eps)
+ <figure/type_long.eps> [22]
+File: figure/selectbukuma.eps Graphic file (type eps)
+ <figure/selectbukuma.eps>
+[23] [24] [25]
+
+LaTeX Font Warning: Font shape `JT1/mc/m/it' undefined
+(Font)              using `JT1/mc/m/n' instead on input line 187.
+
+
+LaTeX Font Warning: Font shape `JY1/mc/m/it' undefined
+(Font)              using `JY1/mc/m/n' instead on input line 187.
+
+File: figure/system_configuration.eps Graphic file (type eps)
+<figure/system_configuration.eps>
+File: figure/db_table.eps Graphic file (type eps)
+ <figure/db_table.eps> [26] [27] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 284--284
+[]\OT1/cmr/m/n/10.95 Java \JY1/mc/m/it/10.95 の学習なら 、
+ []
+
+
+Underfull \hbox (badness 1082) in paragraph at lines 286--286
+[]\JY1/mc/m/it/10.95 頑健な \OT1/cmr/m/n/10.95 Java \JY1/mc/m/it/10.95 プログラ
+ム
+ []
+
+
+Underfull \hbox (badness 3189) in paragraph at lines 288--288
+[]\JY1/mc/m/it/10.95 浅煎り珈琲\OT1/cmr/m/n/10.95 -Java \JY1/mc/m/it/10.95 アプ
+リ
+ []
+
+
+Underfull \hbox (badness 3189) in paragraph at lines 292--292
+[]\JY1/mc/m/it/10.95 浅煎り珈琲\OT1/cmr/m/n/10.95 -Java \JY1/mc/m/it/10.95 アプ
+リ
+ []
+
+
+Underfull \hbox (badness 1824) in paragraph at lines 326--326
+[]\JY1/mc/m/it/10.95 蒸しタオルを使うと酷使
+ []
+
+
+Underfull \hbox (badness 1635) in paragraph at lines 326--326
+\JY1/mc/m/it/10.95 した目の疲れが取れる \OT1/cmr/m/n/10.95 -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 328--329
+[]\JY1/mc/m/it/10.95 いきいき健康 \OT1/cmr/m/n/10.95 NIKKEI
+ []
+
+
+Underfull \hbox (badness 1824) in paragraph at lines 330--330
+[]\JY1/mc/m/it/10.95 蒸しタオルを使うと酷使
+ []
+
+
+Underfull \hbox (badness 1635) in paragraph at lines 330--330
+\JY1/mc/m/it/10.95 した目の疲れが取れる \OT1/cmr/m/n/10.95 -
+ []
+
+
+Underfull \hbox (badness 1436) in paragraph at lines 352--352
+[]\OT1/cmr/m/n/10.95 allcinema ON-LINE \JY1/mc/m/it/10.95 映画
+ []
+
+
+Underfull \hbox (badness 1436) in paragraph at lines 352--352
+[]\OT1/cmr/m/n/10.95 allcinema ON-LINE \JY1/mc/m/it/10.95 映画
+ []
+
+
+Underfull \hbox (badness 2080) in paragraph at lines 358--358
+[]\OT1/cmr/m/n/10.95 CinemaScape?\JY1/mc/m/it/10.95 映画批評空
+ []
+
+
+Underfull \hbox (badness 2080) in paragraph at lines 360--360
+[]\OT1/cmr/m/n/10.95 CinemaScape?\JY1/mc/m/it/10.95 映画批評空
+ []
+
+Missing character: There is no ^^c9 in font cmr10!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 391.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 391.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 393.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 393.
+
+Underfull \hbox (badness 10000) in paragraph at lines 393--394
+[]\OT1/cmr/bx/n/10 Google
+ []
+
+[29] [30] [31] [32] [33]
+Underfull \hbox (badness 10000) in paragraph at lines 435--436
+[]\OT1/cmr/bx/n/10 Google
+ []
+
+[34
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 505--506
+[]\OT1/cmr/bx/n/10 Google
+ []
+
+[35
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 554--555
+[]\OT1/cmr/bx/n/10 Google
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 630--631
+[]\OT1/cmr/bx/n/10 Google
+ []
+
+[37
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 684--685
+[]\OT1/cmr/bx/n/10 Google
+ []
+
+Missing character: There is no ^^c9 in font cmr10!
+[38] [39
+
+
+]
+File: figure/precision_javanum.eps Graphic file (type eps)
+ <figure/precision_javanum.eps>
+File: figure/precision_javapoint.eps Graphic file (type eps)
+ <figure/precision_javapoint.eps>
+[40
+
+]
+File: figure/precision_kenkounum.eps Graphic file (type eps)
+ <figure/precision_kenkounum.eps>
+File: figure/precision_kenkoupoint.eps Graphic file (type eps)
+ <figure/precision_kenkoupoint.eps>
+[41
+
+]
+File: figure/precision_eiganum.eps Graphic file (type eps)
+ <figure/precision_eiganum.eps>
+File: figure/precision_eigapoint.eps Graphic file (type eps)
+ <figure/precision_eigapoint.eps> [42
+
+]
+[43
+
+] [44] [45] [46] [47]) (./5masteryeye.tex [48]
+第 5 章
+[49
+
+] [50]
+File: figure/ziplaw.eps Graphic file (type eps)
+ <figure/ziplaw.eps> [51] [52]
+File: figure/mas_result.eps Graphic file (type eps)
+ <figure/mas_result.eps> [53] [54]
+[55] [56] [57] [58]) (./6termstore.tex [59]
+第 6 章
+[60
+
+]) (./7related.tex [61]
+第 7 章
+[62
+
+] [63]
+
+LaTeX Warning: Citation `Murata2009' on page 64 undefined on input line 30.
+
+
+LaTeX Warning: Citation `Yanbe2009' on page 64 undefined on input line 33.
+
+[64]
+
+LaTeX Warning: Citation `Watanabe2008' on page 65 undefined on input line 42.
+
+
+LaTeX Warning: Citation `Nakamura2009' on page 65 undefined on input line 55.
+
+
+LaTeX Warning: Citation `Shoji2011' on page 65 undefined on input line 59.
+
+[65] [66] [67] [68]
+
+LaTeX Warning: Citation `Dubinko2006' on page 69 undefined on input line 132.
+
+) (./8conclusion.tex [69]
+第 8 章
+[70
+
+] [71] [72] [73]) (./9end.tex [74]
+第 9 章
+[75
+
+] [76] [77]) (./thanksref.tex [78] [79
+
+]) (./release.tex [80] [81
+
+]
+(./main.bbl [82]
+
+LaTeX Font Warning: Font shape `JT1/gt/m/it' undefined
+(Font)              using `JT1/gt/m/n' instead on input line 10.
+
+
+LaTeX Font Warning: Font shape `JY1/gt/m/it' undefined
+(Font)              using `JY1/gt/m/n' instead on input line 10.
+
+[83
+
+] [84] [85] [86] [87] [88] [89] [90])) (./apendixA.tex [91]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <9> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 17.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 17.
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
+[]|\OT1/cmr/m/n/9 http://java.sun.com/j2se/1.4.2/ja/download.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+[]|\OT1/cmr/m/n/9 http://sdc.sun.co.jp/java/docs/j2se/1.4/ja/
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 56
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
+[]|\OT1/cmr/m/n/9 http://www.microsoft.com/japan/java/ de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+[]|\OT1/cmr/m/n/9 http://java.sun.com/j2se/1.5.0/ja/ down-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
+[]|\OT1/cmr/m/n/9 http://www.asahi-net.or.jp/^dp8t-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+[]|\OT1/cmr/m/n/9 http://www.forest.impress.co.jp/lib/arc/ run-
+ []
+
+[92
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+[]|\OT1/cmr/m/n/9 http://www.nminoru.jp/^nminoru/java/
+ []
+
+
+Underfull \hbox (badness 5490) in paragraph at lines 96--97
+[]|\OT1/cmr/m/n/9 http://www.alles.or.jp/^torutk/oojava/ cod-ing-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
+[]|\OT1/cmr/m/n/9 http://itpro.nikkeibp.co.jp/article/ COL-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
+[]|\OT1/cmr/m/n/9 http://java.sun.com/j2se/1.5.0/ja/docs/ja/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+[]|\OT1/cmr/m/n/9 http://journal.mycom.co.jp/articles/2007/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
+[]|\OT1/cmr/m/n/9 http://forza.cocolog-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+[]|\OT1/cmr/m/n/9 http://journal.mycom.co.jp/news/2008/07/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+[]|\OT1/cmr/m/n/9 http://ncf.sakura.ne.jp/asato/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
+[]|\OT1/cmr/m/n/9 http://journal.mycom.co.jp/articles/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+[]|\OT1/cmr/m/n/9 http://www.nurs.or.jp/^sug/soft/log4j/ in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
+[]|\OT1/cmr/m/n/9 http://journal.mycom.co.jp/articles/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
+[]|\OT1/cmr/m/n/9 http://pcweb.mycom.co.jp/news/2006/
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 129
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
+[]|\OT1/cmr/m/n/9 http://journal.mycom.co.jp/articles/2006/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+[]|\OT1/cmr/m/n/9 http://itpro.nikkeibp.co.jp/article/ COL-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
+[]|\OT1/cmr/m/n/9 http://www.infoq.com/jp/news/2007/10/big-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+[]|\OT1/cmr/m/n/9 http://journal.mycom.co.jp/articles/2007/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
+[]|\OT1/cmr/m/n/9 http://www.javainthebox.net/laboratory/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
+[]|\OT1/cmr/m/n/9 http://www.nurs.or.jp/^sug/soft/james/ in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--147
+[]|\OT1/cmr/m/n/9 http://sdc.sun.co.jp/java/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
+[]|\OT1/cmr/m/n/9 http://www.itmedia.co.jp/enterprise/ ar-ti-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
+[]|\OT1/cmr/m/n/9 http://journal.mycom.co.jp/news/
+ []
+
+
+Overfull \vbox (1.57741pt too high) has occurred while \output is active []
+
+
+[93
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
+[]|\OT1/cmr/m/n/9 http://itpro.nikkeibp.co.jp/article/ COL-
+ []
+
+
+Underfull \hbox (badness 5490) in paragraph at lines 171--172
+[]|\OT1/cmr/m/n/9 http://www.alles.or.jp/^torutk/oojava/ cod-ing-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
+[]|\OT1/cmr/m/n/9 http://java.sun.com/j2se/1.5.0/ja/docs/ja/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
+[]|\OT1/cmr/m/n/9 http://www.nurs.or.jp/^sug/soft/log4j /in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
+[]|\OT1/cmr/m/n/9 http://itpro.nikkeibp.co.jp/article/ COL-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
+[]|\OT1/cmr/m/n/9 http://www.javainthebox.net/laboratory/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+[]|\OT1/cmr/m/n/9 http://sdc.sun.co.jp/java/docs/j2se/1.4/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
+[]|\OT1/cmr/m/n/9 http://journal.mycom.co.jp/articles/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
+[]|\OT1/cmr/m/n/9 http://java.sun.com/products/archive/ in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--198
+[]|\OT1/cmr/m/n/9 http://www.atmarkit.co.jp/fjava/rensai3/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 199--200
+[]|\OT1/cmr/m/n/9 http://www.nminoru.jp/^nminoru/java/
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 200
+ []
+
+
+Overfull \hbox (5.43797pt too wide) in paragraph at lines 205--206
+[]|\OT1/cmr/m/n/9 http://www.kab-studio.biz/Programing/JavaA2Z/| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
+[]|\OT1/cmr/m/n/9 http://www.atmarkit.co.jp/fwcr/rensai/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
+[]|\OT1/cmr/m/n/9 http://www5c.biglobe.ne.jp/^ecb/java/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--222
+[]|\OT1/cmr/m/n/9 http://www.atmarkit.co.jp/fjava/rensai3/
+ []
+
+[94
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 243--244
+[]|\OT1/cmr/m/n/9 http://www.mhlw.go.jp/bunya/kenkou/ in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 261--262
+[]|\OT1/cmr/m/n/9 http://www.asahi.com/national/update/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
+[]|\OT1/cmr/m/n/9 http://www.medical-
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 272
+ []
+
+
+Underfull \hbox (badness 3354) in paragraph at lines 277--278
+[]|\OT1/cmr/m/n/9 http://www.google.com/Top/World/ Japanese/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
+[]|\OT1/cmr/m/n/9 http://www.fukushihoken.metro.tokyo.jp/
+ []
+
+[95
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+[]|\OT1/cmr/m/n/9 http://alfalfa.livedoor.biz/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
+[]|\OT1/cmr/m/n/9 http://web-tan.forum.impressrd.jp/e/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
+[]|\OT1/cmr/m/n/9 http://alfalfa.livedoor.biz/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--316
+[]|\OT1/cmr/m/n/9 http://alfalfa.livedoor.biz/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
+[]|\OT1/cmr/m/n/9 http://gigazine.net/index.php?/news/ com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 321--322
+[]|\OT1/cmr/m/n/9 http://mainichi.jp/life/electronics/news/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--324
+[]|\OT1/cmr/m/n/9 http://www.itmedia.co.jp/enterprise/ ar-ti-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--330
+[]|\OT1/cmr/m/n/9 http://itpro.nikkeibp.co.jp/article/ COL-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--332
+[]|\OT1/cmr/m/n/9 http://d.hatena.ne.jp/michikaifu/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--334
+[]|\OT1/cmr/m/n/9 http://alfalfa.livedoor.biz/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 335--336
+[]|\OT1/cmr/m/n/9 http://news4vip.livedoor.biz/archives/
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 344
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
+[]|\OT1/cmr/m/n/9 http://nikkeibp.jp/wcs/leaf/CID/onair/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--348
+[]|\OT1/cmr/m/n/9 http://www.ideaxidea.com/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 349--350
+[]|\OT1/cmr/m/n/9 http://med-legend.com/mt/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
+[]|\OT1/cmr/m/n/9 http://finalvent.cocolog-nifty.com/fareastblog/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 357--358
+[]|\OT1/cmr/m/n/9 http://slashdot.jp/science/article.pl
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--360
+[]|\OT1/cmr/m/n/9 http://d.hatena.ne.jp/bash0C7/20080302/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
+[]|\OT1/cmr/m/n/9 http://www3.tky.3web.ne.jp/^aiaihide/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--364
+[]|\OT1/cmr/m/n/9 http://news4vip.livedoor.biz/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 365--366
+[]|\OT1/cmr/m/n/9 http://japan.cnet.com/news/biz/story/
+ []
+
+[96
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 385--386
+[]|\OT1/cmr/m/n/9 http://www.ideaxidea.com/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 387--388
+[]|\OT1/cmr/m/n/9 http://web-tan.forum.impressrd.jp/e/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 389--390
+[]|\OT1/cmr/m/n/9 http://alfalfa.livedoor.biz/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 393--394
+[]|\OT1/cmr/m/n/9 http://www3.tky.3web.ne.jp/^aiaihide/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--396
+[]|\OT1/cmr/m/n/9 http://gigazine.net/index.php?/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 399--400
+[]|\OT1/cmr/m/n/9 http://itpro.nikkeibp.co.jp/article/ COL-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--408
+[]|\OT1/cmr/m/n/9 http://d.hatena.ne.jp/fromdusktildawn/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 409--410
+[]|\OT1/cmr/m/n/9 http://alfalfa.livedoor.biz/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 411--412
+[]|\OT1/cmr/m/n/9 http://blog.pasonatech.co.jp/masuda/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 413--414
+[]|\OT1/cmr/m/n/9 http://finalvent.cocolog-nifty.com/ far-east-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 415--416
+[]|\OT1/cmr/m/n/9 http://med-legend.com/mt/archives/
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 416
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
+[]|\OT1/cmr/m/n/9 http://gigazine.net/index.php?/news/ com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 419--420
+[]|\OT1/cmr/m/n/9 http://news4vip.livedoor.biz/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 421--422
+[]|\OT1/cmr/m/n/9 http://www.ahv.pref.aichi.jp/taikei/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 423--424
+[]|\OT1/cmr/m/n/9 http://alfalfa.livedoor.biz/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 429--430
+[]|\OT1/cmr/m/n/9 http://cyblog.jp/modules/weblog/ de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
+[]|\OT1/cmr/m/n/9 http://jibun.atmarkit.co.jp/ljibun01/ col-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 433--434
+[]|\OT1/cmr/m/n/9 http://d.hatena.ne.jp/michikaifu/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 435--436
+[]|\OT1/cmr/m/n/9 http://alfalfa.livedoor.biz/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--438
+[]|\OT1/cmr/m/n/9 http://eyeportal.jp/60siryokukensa/
+ []
+
+[97
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
+[]|\OT1/cmr/m/n/9 http://headlines.yahoo.co.jp/hl?a=20091222-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--483
+[]|\OT1/cmr/m/n/9 http://dir.yahoo.co.jp/entertainment/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 486--487
+[]|\OT1/cmr/m/n/9 http://jp.techcrunch.com/archives/
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 487
+ []
+
+[98
+
+]
+Missing character: There is no ^^c9 in font cmr9!
+
+Underfull \hbox (badness 10000) in paragraph at lines 537--538
+[]|\OT1/cmr/m/n/9 http://blog.livedoor.jp/dqnplus/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 539--540
+[]|\OT1/cmr/m/n/9 http://blog.livedoor.jp/dankogai/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 541--542
+[]|\OT1/cmr/m/n/9 http://news4vip.livedoor.biz/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 547--548
+[]|\OT1/cmr/m/n/9 http://alfalfa.livedoor.biz/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 553--554
+[]|\OT1/cmr/m/n/9 http://flowerwild.net/2006/11/2006-11-
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 558
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 567--568
+[]|\OT1/cmr/m/n/9 http://hakaiya.web.infoseek.co.jp/html/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
+[]|\OT1/cmr/m/n/9 http://news4vip.livedoor.biz/archives/
+ []
+
+Missing character: There is no ^^c9 in font cmr9!
+
+Underfull \hbox (badness 10000) in paragraph at lines 575--576
+[]|\OT1/cmr/m/n/9 http://blog.livedoor.jp/dqnplus/archives/
+ []
+
+[99
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 617--618
+[]|\OT1/cmr/m/n/9 http://hakaiya.web.infoseek.co.jp/html/
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 630
+ []
+
+Missing character: There is no ^^c9 in font cmr9!
+
+Underfull \hbox (badness 10000) in paragraph at lines 635--636
+[]|\OT1/cmr/m/n/9 http://blog.livedoor.jp/dqnplus/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 641--642
+[]|\OT1/cmr/m/n/9 http://flowerwild.net/2006/11/2006-11-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 645--646
+[]|\OT1/cmr/m/n/9 http://gigazine.net/index.php?/news/ com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 647--648
+[]|\OT1/cmr/m/n/9 http://blog.livedoor.jp/dankogai/archives/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 649--650
+[]|\OT1/cmr/m/n/9 http://gigazine.net/index.php?/news/ com-
+ []
+
+) (./apendixB.tex [100
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+[]|\OT1/cmr/m/n/10.95 TECHSCORE(\JY1/mc/m/it/10.95 テ ッ クスコア\OT1/cmr/m/n/1
+0.95 )
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+\OT1/cmr/m/n/10.95 ?C \JY1/mc/m/it/10.95 言語\OT1/cmr/m/n/10.95 /JAVA/\JY1/mc/m
+/it/10.95 デザインパタ ー
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+\JY1/mc/m/it/10.95 ン\OT1/cmr/m/n/10.95 /CORBA/XML/SQL/UML \JY1/mc/m/it/10.95 
+を基
+ []
+
+
+Overfull \hbox (9.4428pt too wide) in alignment at lines 14--55
+ [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 55
+ []
+
+
+Overfull \hbox (9.4428pt too wide) in alignment at lines 55--95
+ [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (9.4428pt too wide) in alignment at lines 95--104
+ [] [] [] [] [] [] 
+ []
+
+[101
+
+] [102] [103]
+Overfull \hbox (9.4428pt too wide) in alignment at lines 109--150
+ [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 150
+ []
+
+
+Overfull \hbox (9.4428pt too wide) in alignment at lines 150--190
+ [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (9.4428pt too wide) in alignment at lines 190--203
+ [] [] [] [] [] [] 
+ []
+
+[104
+
+] [105]
+Overfull \hbox (9.4428pt too wide) in alignment at lines 208--249
+ [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 249
+ []
+
+Missing character: There is no ^^c9 in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--256
+[]|\JY1/mc/m/it/10.95 映画館 ・ シネコンの 【 ム ービ ッ ク
+ []
+
+
+Overfull \hbox (9.4428pt too wide) in alignment at lines 249--289
+ [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (9.4428pt too wide) in alignment at lines 289--298
+ [] [] [] [] [] [] 
+ []
+
+[106
+
+]) (./end.tex [107] (./main.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) ) 
+Here is how much of TeX's memory you used:
+ 1154 strings out of 95552
+ 14116 string characters out of 1187504
+ 92180 words of memory out of 1000000
+ 4238 multiletter control sequences out of 10000+50000
+ 18745 words of font info for 73 fonts, out of 500000 for 2000
+ 14 hyphenation exceptions out of 1000
+ 27i,9n,24p,1947b,509s stack positions out of 1500i,500n,5000p,200000b,5000s
+
+Output written on main.dvi (117 pages, 482624 bytes).

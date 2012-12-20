@@ -1,0 +1,1030 @@
+\documentclass[a4j,11pt]{jreport}
+\include{begin}
+%ここに本文を書く
+\chapter{長期的なWebページの検索}
+	\section*{概要}
+本章では，長期的に利用されているWebページを検索するシステム「セレクトブクマ」について述べる．
+	\newpage
+
+	\section{背景}
+近年Web上のコンテンツは多種多様になってきており，一般の検索エンジンでは，Web上に存在する体系だった知識や有益なコンテンツを手軽に取得することが容易ではなくなってきている．これに対して，筆者はWeb上に存在する多種多様で玉石混合のWebコンテンツの中でも，いつ見ても有用な体系だった知識を得られるWebページや有益なコンテンツは，長い間多くのユーザからアクセスされたり，ブックマークされたりすると考えた．
+
+そこで，本研究では膨大で多種多様な情報の中から手軽に有益なコンテンツを取得するために，ユーザのブックマーク情報を共有できるソーシャルブックマークのデータの活用方法を考案した．本研究ではまず，ソーシャルブックマークデータを分析した．データの分析に基づき，一時期に限りブックマークされるWebページは，一時的に必要とされる種類のWebページが多いのに対し，長い間多くのユーザからブックマークされ続けるWebページは，いつ見ても有用な情報を得られる種類のWebページが多いことを示した．この特性に基づき，効率よく体系だった知識の得られるWebページや有益なWebコンテンツを発見・収集する情報収集支援システム「セレクトブクマ」を提案，実装し，評価実験を行った．
+	
+	\section{分析}
+	\subsection{ソーシャルブックマークデータの分析}
+国内最大規模のソーシャルブックマークサービスを提供しているはてなブックマーク\cite{hatebu}（図\ref{fig:hatebu}）のデータを収集した．はてなブックマークは，2012年12月現在，約1億5000万件程ブックマークされている．この中から，2005年5月～2008年9月までにブックマークされたデータの中でブックマーク数5以上のページの以下のデータをすべてデータベースに収集した．
+
+\begin{itemize}
+\item URL
+\item タイトル
+\item ブックマークしたユーザID
+\item ブックマークした日時
+\item ブックマークしたユーザが付与したタグ名
+\end{itemize}
+
+はてなブックマークのデータ収集には，はてなブックマークAPIを利用した．データベースに収集したデータの量は，表\ref{tb:database}に示す．
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{収集したデータ量}                %和文 caption
+      \label{tb:database}
+      \begin{tabular}[htb]{|c|c|}
+      \hline
+      \bf データ名 & \bf データ量  \\
+       \hline
+       URL数 & 762,239URL \\
+       \hline
+       ブックマーク数 & 12,751,661ブックマーク\\
+       \hline
+       ユーザ数 & 87,898人 \\
+       \hline
+       タグ数 & 17,168,666タグ \\
+       \hline
+       タグ数(種類) & 252,512種類 \\
+       \hline
+       レコード数 & 21,686,536レコード \\
+       \hline
+      \end{tabular}
+      \end{center}
+\end{table}
+
+収集したデータから計算すると，ひとりが1つのブックマークをするときに平均して約1.35個のタグを付与していることがわかる．
+
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.35]{figure/hatebu.eps}
+      \caption{はてなブックマーク}          %和文 caption
+       \label{fig:hatebu}
+      \end{center}
+\end{figure}
+
+	\subsection{時間情報に関する分析}
+ユーザからいつ，どれくらいブックマークされるか，ブックマーク数と時間の関係について分析を行った．その結果，大まかに分けて次の3種類のタイプのWebページがあることが分かった．
+\begin{enumerate}
+\item 一時的にブックマークされ，その後ほとんどブックマークされなくなるタイプのページ（図\ref{fig:bookmark_date1}）
+\item 一時的に大量にブックマークされ，その後も長い間ブックマークされ続けるタイプのページ（図\ref{fig:bookmark_date2}）
+\item 大量にブックマークされる時期はないが，長い間ブックマークされ続けるタイプのページ（図\ref{fig:bookmark_date3}）
+\end{enumerate} 
+
+
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.5]{figure/bookmark_date1.eps}
+      \caption{一時的にブックマークされ，その後ほとんどブックマークされなくなるタイプのページ}          %和文 caption
+       \label{fig:bookmark_date1}
+      \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.5]{figure/bookmark_date2.eps}
+      \caption{一時的に大量にブックマークされ，その後も長い間ブックマークされ続けるタイプのページ}          %和文 caption
+       \label{fig:bookmark_date2}
+      \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.5]{figure/bookmark_date3.eps}
+      \caption{大量にブックマークされる時期はないが，長い間ブックマークされ続けるタイプのページ}          %和文 caption
+       \label{fig:bookmark_date3}
+      \end{center}
+\end{figure}
+
+
+以上の3種類のタイプのWebページをさらに，大まかに分類すると，以下の2種類のタイプのWebページに分類できる．
+
+\begin{itemize}
+\item Type1：一時期しかユーザからブックマークされないページ
+\item Type2：長い間ユーザからブックマークされ続けるページ
+\end{itemize}
+
+以上のType1とType2のWebページに対して，そのWebページがどういった種類のWebページであるかを分析した．その分析結果を以下の図\ref{fig:type_short}と図\ref{fig:type_long}に示す．分析対象のページは，以下の条件とした．
+\begin{itemize}
+\item Type1は，全日数/全ブックマーク数=0.2以下
+\item Type2は，全日数/全ブックマーク数=0.8以上
+\item Type1とType2に対して，ブックマーク数100以上のページをランダムに100ページずつ取得
+\end{itemize}
+
+ここで全日数とは，ユーザからブックマークされた日数を表す．例えば，2007年1月3日と2007年2月10日と2008年10月10日にそれぞれ異なったユーザからブックマークされた場合，3日とする．ここで，全日数/全ブックマーク数=0.2以下と0.8以上で分類した理由は，ブックマーク数100以上のページ数が，双方で近い値，かつ，双方とも100ページを大きく上回るページ数を確保できたからである．
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.6]{figure/type_short.eps}
+      \caption{Type1のWebページの種類}          %和文 caption
+       \label{fig:type_short}
+      \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.6]{figure/type_long.eps}
+      \caption{Type2のWebページの種類}          %和文 caption
+       \label{fig:type_long}
+      \end{center}
+\end{figure}
+
+図\ref{fig:type_short}，図\ref{fig:type_long}から分かるように，Type1のWebページでは，「ニュース・話題」，「議論・日記」，「サービス・ツール紹介」が上位を占めており，一時的に利用される傾向の強いWebページが大半を占めている．これに対して，Type2のWebページでは，「Webサービス」，「総合的技術解説サイト」，「まとめサイト」が上位を占めており，長期間にわたって利用される傾向の強いWebページが大半を占めていることが分かった．このことから，Type2のような長期間にわたってブックマークされ続けるようなWeb ページを優先的に取得することによって，Type1のような一時的に利用される傾向の強いWebページをフィルタリングして，いつ見ても有用なWebぺージのみを検索できる可能性が高いことがわかった．
+
+	
+	\section{セレクトブクマの提案}
+	\subsection{セレクトブクマの概要}
+本研究では，ソーシャルブックマークのデータを利用した情報収集システム「セレクトブクマ」を提案・実装した．セレクトブクマでは，調べたい分野に対して，ソーシャルブックマークのブックマーク数とブックマークされた日数という二つの指標を利用して，Webページをランキング化している．セレクトブクマを利用することによって，手軽に体系だった知識や有用なWebサービスを収集できる．
+
+	\subsection{セレクトブクマの設計思想}
+セレクトブクマでは，特に情報収集の手軽さを重視している．また，調べたい分野に対して，以下２つのことを目的としている．
+\begin{itemize}
+\item 体系だった知識を得ること
+\item 有用なWebサービスを発見すること
+\end{itemize}
+情報を収集する際に，上記以外のWebページが表示されないように，情報フィルタリングを行うことに注力している．
+
+そのために，1つ目の指標として，ソーシャルブックマークのブックマーク数という指標を利用している．これは，ユーザのブックマークするという行為がWebページへの評価であるという考えに基づいている．
+
+2つ目の指標として，ブックマークされた日数を利用している．これは，4.2.の分析結果に基づき，長い間ブックマークされ続けるWebページは，長期間必要とされる種類のWebページが多いことを利用している．このブックマークされた日数という指標を利用することによって，一時的にしか利用しないWebページをフィルタリングすることができる．
+
+	\subsection{セレクトブクマ画面構成}
+セレクトブクマの検索前の画面と検索後の画面を図\ref{fig:selectbukuma}に示す．
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.45]{figure/selectbukuma.eps}
+      \caption{セレクトブクマ画面}          %和文 caption
+       \label{fig:selectbukuma}
+      \end{center}
+\end{figure}
+
+図\ref{fig:selectbukuma}の(1)～(4)の説明を以下に示す．\\ \\
+(1) 検索単語（タグ）入力ボックス
+
+検索単語（タグ）を入力するテキストボックスで，タグを入力し，検索ボタンを押すことにより，指定したタグで検索を行う．\\ \\
+(2) 検索回数の多いタグ
+
+人気のタグであり，検索回数の多い順に並べたものである．すべてを総合して検索回数の多い順に並べた「総合」と，「技術」，「趣味」，「社会・生活」，「その他」のカテゴリごとに検索回数の多い順に並べたものがある．\\ \\
+(3) 検索結果のWebページのタイトル
+
+検索結果のWebページのタイトルを表示したもので，タイトルのリンクをクリックすると，クリックしたWebページを表示する．\\ \\
+(4) ランキングの値 
+
+後に示すランキングの計算式を用いて計算した値とその値を棒グラフで可視化したものである．
+
+
+	\subsection{セレクトブクマインタフェース}
+セレクトブクマの基本的なインタフェースは，検索窓になにか単語を入力し，検索ボタンを押すことによって検索をおこなう．検索結果は，1ページに上位10件表示され，「次へ」ボタンを押すと，11位～20位までが表示される．このインタフェースは，一般的な検索エンジンと同じである．
+
+上記に加えて，補助的な機能として，セレクトブクマを利用したユーザの検索回数の多い単語をカテゴリーごとに表示し，そのリンクをクリックすることによっても検索可能としている．セレクトブクマは，検索エンジンというより，情報収集支援システムという位置付けで，運用をしている．ユーザには，ある分野ごとに情報を収集するという目的で利用してもらう想定である．そのため，検索単語の選び方が少し一般的な検索エンジンと異なり，検索単語が複数例示されていると，新規ユーザにとっても取り付きやすいのではないかと考えた．
+
+検索回数の多い単語は，興味のある分野を見つけやすいように，「技術」，「趣味」，「社会・生活」，「その他」の4分野にカテゴリーわけを行っている．さらに，すべてのカテゴリーを含めた検索回数に対して順位を付け，それを「総合」として表示している．
+
+	\subsection{長期度と検索ランキングロジック}
+セレクトブクマでは，ブックマークされた日数を長期度とする．ブックマークされた日数が多ければ多いほど長期度が高くなる仕組みである．また，セレクトブクマの検索結果のランキングを出すにあたっては，長期度に加えて，ブックマーク数を利用した．検索単語（タグ）として指定したタグでのブックマーク数に，指定したタグでブックマークされた日数で重み付けをして，値の大きいものほど順位が高くなるようにランキングを行っている．ランキングの計算式を以下に示す．
+\begin{eqnarray}
+Bookmarks \times Days^{\alpha}
+\end{eqnarray}
+{\itshape Bookmarks}：指定したタグでのブックマーク数\\
+{\itshape Days}：指定したタグでブックマークされた日数\\
+{\itshape α}：任意の指数
+
+本研究では，検索結果のランキング手法について，さまざまな手法を考案し，試作した．ひとつひとつの手法についての詳細な評価は行っていないが，検索結果を見ていると上記の手法がシンプルかつ効果的であると考えられたため，上記の手法で評価実験を行うことにした．
+
+	\subsection{システム構成}
+セレクトブクマは，Webサービスとして実装した．画面の表示部分は，HTML，JSP，JavaScriptを利用し，計算などやデータベースとの連携は，主にJavaを利用している．JavaとJavaScriptの連携は，Ajax方式を用いて，JSON形式でデータの受け渡しをしている．ユーザが検索を行う場合，主に以下の手順でシステムが動作する．
+\begin{enumerate}
+\item ユーザが検索する
+\item 検索単語がサーバへ送られる
+\item 検索単語でデータベースを検索する
+\item データベースの検索結果から，ランキングを計算する
+\item ランキングに基づき，ユーザに検索結果を返す
+\end{enumerate}
+
+
+セレクトブクマのシステム構成図を以下の図\ref{fig:system_configuration}に示す．
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.6]{figure/system_configuration.eps}
+      \caption{システム構成図}          %和文 caption
+       \label{fig:system_configuration}
+      \end{center}
+\end{figure}
+
+
+また，DBのテーブル構造は，以下の図\ref{fig:db_table}に示す．
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.4]{figure/db_table.eps}
+      \caption{DBのテーブル構成図}          %和文 caption
+       \label{fig:db_table}
+      \end{center}
+\end{figure}
+
+
+	\section{評価実験}
+	\subsection{実験概要}
+セレクトブクマの有用性を評価するため，以下3種類の手法において比較実験を行った．
+\begin{itemize}
+\item Google検索
+\item 取得したはてなブックマークのデータの中で，タグで検索した場合のブックマーク数が多いものから順にランキングしたもの（以降，ブックマーク数順）
+\item セレクトブクマ（α=1）
+\end{itemize}
+
+	\subsection{実験目的}
+本実験の目的としては，本研究の目的である，Web上から以下の情報を手軽に取得できるかどうかについて評価することである．
+\begin{itemize}
+\item 体系だった知識を得ること
+\item 有益なWebコンテンツを発見すること
+\end{itemize}
+そのため，以下のようなことを目的とした実験をおこなった．
+\begin{itemize}
+\item セレクトブクマと既存の検索エンジンにおいて，どちらがより今後も利用するような体系だった知識を得られるWebページを手軽に取得できるか評価する
+\item セレクトブクマで利用している手法である，時間情報による重み付けによって，一時的に必要とされる情報をフィルタリングできていることを実証する
+\end{itemize}
+
+	\subsection{実験方法}
+以下，3種類の手法で検索を行い，検索結果上位各30件を取得した．取得した合計90件のWebページの中で重複したものを除いたWebページを，順番をランダムにしたリストとして示した．そのリストの中から被験者に今後も利用したいと思うWebページを1位～10位まで選んでもらう．
+\begin{itemize}
+\item Google検索
+\item ブックマーク数順
+\item セレクトブクマ（α=1）
+\end{itemize}
+
+被験者が選んだWebページを適合文書として，適合率$^{*8}$，再現率$^{*9}$を求める．
+
+実験条件は以下とする．
+\begin{itemize}
+\item 被験者数：30人（1単語につき10人×3単語）
+\item 検索単語（タグ）：「java」，「健康」，「映画」
+\item 「java」：男性6人，女性4人
+\item 「健康」：男性5人，女性5人
+\item 「映画」：男性3人，女性7人
+\end{itemize}
+
+検索単語（タグ）は，技術系の分野から「java」，生活系の分野から「健康」，娯楽系の分野から「映画」と3つの異なった分野から1つずつ選んだ．それぞれ，技術系，生活系，娯楽系の中でも，特別はてなブックマークデータを利用した場合に有利になるような単語ではなく，できるだけ一般的な単語を選んだ．被験者の負担を軽減するため，1人1単語を目安に実験をおこなった．また，Google検索結果は，2009年12月23日に検索した検索結果を利用した．
+
+	\subsection{実験結果}
+以上のような実験方法に基づき，実験を行った結果について示す． 
+
+\subsubsection{(1) 各検索手法による検索結果上位10件}
+	
+Google検索とブックマーク数順とセレクトブクマでの検索結果上位10件のタイトルを以下の表\ref{tb:result_java}～\ref{tb:result_eiga}に示す．すべての検索結果上位30件のタイトルとURLは，付録Aに示す．
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{「java」で検索した場合の検索結果上位10件}                %和文 caption
+      \label{tb:result_java}
+      \begin{tabular}[hbt]{|c|p{12zw}|p{12zw}|p{12zw}|}
+      \hline
+      \bf  順位 & \bf セレクトブクマ & \bf ブックマーク数順 & \bf Google検索\\
+      \hline
+      1 &  Javaの道(Java入門：リファレンス） & Java のクラスアンロード (Class Unloading) & java.com: あなたと Java\\
+        \hline
+         2 &  Javaの学習なら、JavaDrive & Java の道（Java 入門・リファレンス） & 無料 Java ソフトウェアをダウンロード - Sun Microsystems\\
+        \hline
+  	3 &  Java技術最前線：ITpro & 頑健な Java プログラムの書き方(Writing Robust Java Code) & Java - Wikipedia\\
+        \hline
+  	4 &  浅煎り珈琲-Java アプリケーション入門 & Java 技術最前線：ITpro & Javaテクノロジ - サン・マイクロシステムズ\\
+        \hline
+  	5 &  頑健なJavaプログラムの書き方 & Java の学習なら JavaDrive & サン・マイクロシステムズ\\
+        \hline
+  	6 &  Java House ML & 浅煎り珈琲-Java アプリケーション入門 & Javaとは - 意味/解説/説明/定義 ： IT用語辞典\\
+        \hline
+  	7 & JavaでHello World  & JavaでHello World & 日本 Java ユーザグループ\\
+        \hline
+  	8 & Java 2 Platform SE 5.0 &  Java 2 Platform SE & Javaとは - はてなキーワード\\
+        \hline
+  	9 & Java in the Box & 【レポート】Java 初学者には最適!? 解説から実行までブラウザでコンプリート - Javala (MYCOMジャーナル & Sun Developer Connection - Java Developer Connection\\
+        \hline
+  	10 & Log4J徹底解説～目次 & Java House ML & Javaの道（Java入門・リファレンス）\\
+        \hline
+      \end{tabular}
+      \end{center}
+\end{table}
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{「健康」で検索した場合の検索結果上位10件}                %和文 caption
+      \label{tb:result_kenkou}
+      \begin{tabular}[hbt]{|c|p{12zw}|p{12zw}|p{12zw}|}
+      \hline
+      \bf  順位 & \bf セレクトブクマ & \bf ブックマーク数順 & \bf Google検索 \\
+      \hline
+      1 & healthクリック｜健康 生活習慣病 サプリメント & ゲンダイネット - 目の疲れをためない３大作戦 & 健康 - Wikipedia\\
+        \hline
+         2 & 基礎代謝を高めるための９９の技法 & 体の歪みを治したい:アルファルファモザイク & 家庭の医学・健康 - goo ヘルスケア\\
+        \hline
+  	3 & ゲンダイネット - 目の疲れをためない３大作戦 & 重い、痛いを吹き飛ばせ！ 肩コリ解消法 | Web担当者Forum & 健康ネット\\
+        \hline
+  	4 & 視力回復マッサージは本当に効き目があるのだ（映像付） | i d e a * i d e a& 眼精疲労を治すには:アルファルファモザイク & 病院情報、家庭の医学、病気の検索、薬の情報、健康情報 - Yahoo ... \\
+        \hline
+  	5 & 重い、痛いを吹き飛ばせ！ 肩コリ解消法 | Web担当者Forum & 金も時間も掛からない花粉症予防の仕方:アルファルファモザイク & 厚生労働省：健康\\
+        \hline
+  	6 & 体の歪みを治したい:アルファルファモザイク & healthクリック｜健康 生活習慣病 サプリメント & 健康 ON-LINE\\
+        \hline
+  	7 & 病院検索ならここカラダ & 蒸しタオルを使うと酷使した目の疲れが取れる - GIGAZINE & asahi.com（朝日新聞社）：医療・健康・ニュース\\
+        \hline
+  	8 & 意外に効き目のある視力回復マッサージ & 疲れ目：パソコン作業で肩こり、視力低下など眼精疲労　対策は…（上） - 毎日ｊｐ(毎日新聞) & いきいき健康 NIKKEI NET\\
+        \hline
+  	9 & 蒸しタオルを使うと酷使した目の疲れが取れる - GIGAZINE & ビジネスマンの不死身力：「夜食は太る」の科学 (1/2) - ITmedia エンタープライズ & [健康管理] All About\\
+        \hline
+  	10 & MouRa｜Net現代｜巷にはびこる「健康情報」50のウソ・ホント & 基礎代謝を高めるための９９の技法 & ケンコーコム - 健康メガショップ\\
+        \hline
+      \end{tabular}
+      \end{center}
+\end{table}
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{「映画」で検索した場合の検索結果上位10件}                %和文 caption
+      \label{tb:result_eiga}
+      \begin{tabular}[hbt]{|c|p{12zw}|p{12zw}|p{12zw}|}
+      \hline
+      \bf  順位 & \bf セレクトブクマ & \bf ブックマーク数順 & \bf Google検索 \\
+      \hline
+      1 & ★前田有一の超映画批評★ & ★前田有一の超映画批評★ & Yahoo!映画 - 映画情報\\
+        \hline
+         2 & みんなのシネマレビュー  & みんなのシネマレビュー & 映画情報 - goo 映画\\
+        \hline
+  	3 & あの映画のココがわからない　まとめサイト & あの映画のココがわからない　まとめサイト & 映画・DVDと映画館の上映時間を完全網羅 | Movie Walker\\
+        \hline
+  	4 & allcinema ONLINE 映画データベース & allcinema ONLINE 映画データベース & 映画のことならeiga.com\\
+        \hline
+  	5 & 映画生活 - 新作映画情報 & 超映画批評 & 映画「サマーウォーズ」公式サイト\\
+        \hline
+  	6 & 超映画批評 & 段ボールで『2001年宇宙の旅』をリメイクできるか？ - ベイエリア在住町山智浩アメリカ日記 & 映画 - Wikipedia\\
+        \hline
+  	7 & CinemaScape?映画批評空間? & 映画生活 - 新作映画情報 & TOHOシネマズ\\
+        \hline
+  	8 & cinemacafe.net シネマカフェ ?映画ファンによる、映画ファンのための、映画的ライフスタイル・エンターテイメント・サイト? & CinemaScape?映画批評空間? & ワーナー・マイカル・シネマズ－映画館、映画情報、上映スケジュール ...\\
+        \hline
+  	9 & eiga.com & 痛いニュース(ﾉ∀`):もっとも感動した映画トップ10発表 & 大ブーイング！ぐだぐだ最終回「JIN」映画化？TBS意外な反応 ...\\
+        \hline
+  	10 & いのちの食べかた & 404 Blog Not Found:アマとプロとが選んだディストピア映画歴代トップ26 - 1 & 新作映画情報「ぴあ映画生活」\\
+        \hline
+
+      \end{tabular}
+      \end{center}
+\end{table}
+
+検索結果を見ると，Google検索の場合は，大手企業が作成したWebページが上位にランキングされやすい傾向にあるのに対して，逆にセレクトブクマでは，個人で作成したようなWebページが上位にランキングされやすい傾向にあることがわかる．また，ブックマーク数順とセレクトブクマでは，ある程度ランキングされるWebページが近い傾向にあることがわかる．これは，セレクトブクマのロジックが，ブックマーク数に対して日付で重みを付けていることに起因している．
+
+\subsubsection{(2) 被験者が選んだWebページ}
+	
+Google検索，ブックマーク数順，セレクトブクマの検索結果から，被験者が今後も利用したいと思うWebページを1位～10位までを被験者に選んでもらった結果を以下の表\ref{tb:selectpage_javanum}～表\ref{tb:selectpage_eigapoint}に示す．「java」，「健康」，「映画」という各単語に対して，以下2種類の結果を示す．
+\begin{enumerate}
+\item 人数順 \\
+被験者が何人が選んだか人数順に示したものである．3人以上選んだWebページのみ記載する．
+\item 得点順 \\
+被験者が選んだ順位によって得点を付与し，得点順に並べたものの2種類を示す．得点は，1位10点，2位9点，3位8点・・・10位1点のようにつけた．得点の上位30件のみを記載する．
+\end{enumerate}
+
+
+「java」に関しては，表\ref{tb:selectpage_javanum}，表\ref{tb:selectpage_javapoint}，「健康」に関しては，表\ref{tb:selectpage_kenkounum}，表\ref{tb:selectpage_kenkoupoint}，「映画」に関しては，表\ref{tb:selectpage_eiganum}，表\ref{tb:selectpage_eigapoint}，に示す．
+
+\begin{table}[htbp]
+\begin{center}
+\caption{「java」で検索した場合の検索結果の中から被験者が選んだWebページ（人数）} 
+\label{tb:selectpage_javanum}
+{\small
+\begin{tabular}[htbp]{|c|p{22zw}|p{5zw}|p{5zw}|p{4zw}|}
+      \hline
+      \bf  人数 & \bf タイトル & \bf セレクトブクマ順位 & \bf ブックマーク数順位 & \bf Google検索順位  \\
+          \hline
+    	7 & Javaの道（Java入門・リファレンス） & \bfseries 1 & \bfseries 2 & \bfseries 10 \\
+	 \hline
+	7 & とほほのJava入門 &  &  & 14 \\ 
+    	\hline
+	7 & Javaの学習ならJavaDrive & \bfseries 2 & \bfseries 5 &  \\ 
+	\hline
+	5 & 初心者がJavaを“超高速”で学ぶためのコツ：ITpro & 12 & 22 &  \\
+      	\hline
+	4 & Java入門  & 27 &  &  \\
+	\hline
+	4 & TECHSCORE(テックスコア) ?C言語/JAVA/デザインパターン/CORBA/XML/SQL/UMLを基礎から丁寧に解説します? & 26 &  &  \\
+	\hline
+	4 & Java FAQ: よくある質問とその回答集 &  &  & 21 \\
+	\hline
+	4 & JavaでHello World & \bfseries 7 & \bfseries 7 & 13 \\ 
+	\hline
+	4 & MYCOMジャーナル - エンタープライズ - コラム - ライトニングJava & 20 &  &  \\
+	\hline
+	3 & JavaをJavaScriptに変換するグーグルのツールを使ってみよう ? ＠IT & 25 &  &  \\
+	\hline
+	3 & Java -TECHSCORE- &  &  & 19 \\ 
+	\hline
+	3 & 頑健なJavaプログラムの書き方(Writing Robust Java Code) & \bfseries 5 & \bfseries 3 &  \\
+	\hline
+	3 & ＠IT：Hibernateで理解するO/Rマッピング（1） & 30 &  &  \\
+	\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\clearpage
+
+\begin{table}[htbp]
+\begin{center}
+\caption{「java」で検索した場合の検索結果の中から被験者が選んだWebページ（得点）} 
+\label{tb:selectpage_javapoint}
+{\small
+\begin{tabular}[htbp]{|c|p{22zw}|p{5zw}|p{5zw}|p{4zw}|}
+      \hline
+      \bf  得点 & \bf タイトル & \bf セレクトブクマ順位 & \bf ブックマーク数順位 & \bf Google検索順位  \\
+\hline
+55 & とほほのJava入門 &  &  & 14\\
+\hline
+45 & Java の道（Java 入門・リファレンス） & \bfseries 1 & \bfseries 2 & \bfseries 10 \\
+\hline
+33 & Javaの学習ならJavaDrive & \bfseries 2 & \bfseries 5 & \\
+\hline
+27 & Java FAQ: よくある質問とその回答集 &  &  & 21\\
+\hline
+23 & Java入門 & 27 &  & \\
+\hline
+20 & MYCOMジャーナル - エンタープライズ - コラム - ライトニングJava & 20 &  & \\
+\hline
+19 & JavaでHello World & \bfseries 7 & \bfseries 7 & 13 \\
+\hline
+19 & Java技術最前線：ITpro & \bfseries 3 & \bfseries 4 & \\
+\hline
+18 &  Java -TECHSCORE- &  &  & 19 \\
+\hline
+18 & 頑健なJavaプログラムの書き方(Writing Robust Java Code) & \bfseries 5 & \bfseries 3 & \\
+\hline
+18 & JavaA2Z & 22 &  & \\
+\hline
+15 & TECHSCORE(テックスコア) ?C言語/JAVA/デザインパターン/CORBA/XML/SQL/UMLを基礎から丁寧に
+解説します? & 26 &  & \\
+\hline
+15 & ITmedia エンタープライズ：矛盾を抱えつつ進化する“Java”??黒船となったRuby on Rails (1/2) &  & 29 & 
+\\
+\hline
+14 & 初心者がJavaを“超高速”で学ぶためのコツ：ITpro & 12 & 22 & \\
+\hline
+14 & Java 2 Platform SE 5.0 & \bfseries 8 & \bfseries 8 & \\
+\hline
+13 & JavaをJavaScriptに変換するグーグルのツールを使ってみよう ? ＠IT & 25 &  & \\
+\hline
+13 & Java におけるコード進化パターン (Code Evolution Patterns in Java) &  & 14 & \\
+\hline
+12 & C/C いっさいなし、Javaだけで開発されたOS - JNode (MYCOM PC WEB) &  & 19 & \\
+\hline
+11 & ＠IT：Hibernateで理解するO/Rマッピング（1） & 30 &  & \\
+\hline
+10 & Javaアプレット - Wikipedia &  &  & 20\\
+\hline
+9 & Java Solution ? ＠IT & 28 &  & 12\\
+\hline
+9 & IBM developerWorks Japan : Resources for Java developers &  &  & 17\\
+\hline
+9 & Javaでゲーム作りますが何か？ & 16 & 17 & \\
+\hline
+8 & RubyよりもJavaが好きな理由 &  & 11 & \\
+\hline
+8 & Java in the Box & \bfseries 9 & 13 & 23\\
+\hline
+8 & Ja-Jakarta Project & 21 &  & \\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\clearpage
+
+\begin{table}[htbp]
+\begin{center}
+\caption{「健康」で検索した場合の検索結果の中から被験者が選んだWebページ（人数）} 
+\label{tb:selectpage_kenkounum}
+{\small
+\begin{tabular}[htbp]{|c|p{22zw}|p{5zw}|p{5zw}|p{4zw}|}
+\hline  
+      \bf  人数 & \bf タイトル & \bf セレクトブクマ順位 & \bf ブックマーク数順位 & \bf Google検索順位  \\
+\hline          
+6 & 意外に効き目のある視力回復マッサージ & \bfseries 8 & 28 & \\
+\hline
+6 & 視力検査 - あなたの視力 今いくつ？：視力回復のアイポータル & 30 &  & \\
+\hline
+5 & 蒸しタオルを使うと酷使した目の疲れが取れる - GIGAZINE & \bfseries 9 & \bfseries 7 & \\
+\hline
+5 & なかなか眠れない人のための簡単に眠る10の方法 - GIGAZINE & 20 &  & \\
+\hline
+4 & 第1回　眼の疲れを取る：ITpro & 11 & 12 & \\
+\hline
+3 & 基礎代謝を高めるための９９の技法 & \bfseries 2 & \bfseries 10 & \\
+\hline
+3 & 視力回復とレーシックのアイポータル & 14 & 16 & \\
+\hline
+3 & ビジネスマンの不死身力：「夜食は太る」の科学 (1/2) - ITmedia エンタープライズ &  & \bfseries 9 & \\
+\hline
+3 & 5時間以下の睡眠続け死亡率1.7倍に　7時間寝よう｜Ameba News & 13 & 18 & \\
+\hline
+3 & 視力回復マッサージは本当に効き目があるのだ（映像付） | i d e a * i d e a & \bfseries 4 & 21 & \\
+\hline
+3 & 睡眠時間を記録するサイト | ねむログ & 25 &  & \\
+\hline
+3 & なんでも評点:空腹は幸福？ ? ストレスで腹が減ったときは何も食べずに我慢した方がストレスに打ち克て
+る... &  & 19 & \\
+\hline
+3 & シゴタノ！ - 睡眠時間を短くする１４のコツ＜前編＞ & 26 &  & \\
+\hline
+3 & 「うつ」にならない、繰り返さない ? ＠IT自分戦略研究所 & 27 &  & \\
+\hline
+3 & スラッシュドット・ジャパン | 睡眠不足だと仕事がはかどらない理由、科学的に明らかになる &  & 26 & \\
+\hline
+3 & 姿勢をよくするための運動 - Tech Mom from Silicon Valley & 28 & 13 & \\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\clearpage
+
+\begin{table}[htbp]
+\begin{center}
+\caption{「健康」で検索した場合の検索結果の中から被験者が選んだWebページ（得点）} 
+\label{tb:selectpage_kenkoupoint}
+{\small
+\begin{tabular}[htbp]{|c|p{22zw}|p{5zw}|p{5zw}|p{4zw}|}
+\hline
+      \bf  得点 & \bf タイトル & \bf セレクトブクマ順位 & \bf ブックマーク数順位 & \bf Google検索順位  \\
+\hline          
+36 & 視力検査 - あなたの視力 今いくつ？：視力回復のアイポータル & 30 &  & \\
+\hline
+33 & 基礎代謝を高めるための９９の技法 & \bfseries 2 & \bfseries 10 & \\
+\hline
+30 & 意外に効き目のある視力回復マッサージ & \bfseries 8 & 28 & \\
+\hline
+30 & なかなか眠れない人のための簡単に眠る10の方法 - GIGAZINE & 20 &  & \\
+\hline
+24 & 蒸しタオルを使うと酷使した目の疲れが取れる - GIGAZINE & \bfseries 9 & \bfseries 7 & \\
+\hline
+23 & 睡眠時間を記録するサイト | ねむログ & 25 &  & \\
+\hline
+21 & 第1回　眼の疲れを取る：ITpro & 11 & 12 & \\
+\hline
+21 & 視力回復マッサージは本当に効き目があるのだ（映像付） | i d e a * i d e a & \bfseries 4 & 21 & \\
+\hline
+19 & Medical Tribune あなたの健康百科 &  &  & 16 \\
+\hline
+18 & ビジネスマンの不死身力：「夜食は太る」の科学 (1/2) - ITmedia エンタープライズ &  & \bfseries 9 & \\
+\hline
+18 & スラッシュドット・ジャパン | 睡眠不足だと仕事がはかどらない理由、科学的に明らかになる &  & 26 & \\
+\hline
+17 & 5時間以下の睡眠続け死亡率1.7倍に　7時間寝よう｜Ameba News & 13 & 18 & \\
+\hline
+17 & 「うつ」にならない、繰り返さない ? ＠IT自分戦略研究所 & 27 &  & \\
+\hline
+14 & 視力回復とレーシックのアイポータル & 14 & 16 & \\
+\hline
+14 & シゴタノ！ - 睡眠時間を短くする１４のコツ＜前編＞ & 26 &  & \\
+\hline
+14 & 精神状態の健康がピンチになった時の３つの対処 - koeだめ &  & 27 & \\
+\hline
+14 & 重い、痛いを吹き飛ばせ！ 肩コリ解消法 | Web担当者Forum & \bfseries 5 & \bfseries 3 & \\
+\hline
+14 & 割れた腹筋を手に入れるトレーニングを教えてもらいました． | その他(ライフ) | とりあえず... & 17 &  & \\
+\hline
+13 & [健康管理] All About &  &  & 19 \\
+\hline
+12 & 医学都市伝説: 暗いところで本を読んでも目は悪くならない & 19 & 22 & \\
+\hline
+11 & asahi.com（朝日新聞社）：医療・健康・ニュース &  &  & \bfseries 7 \\
+\hline
+10 & なんでも評点:空腹は幸福？ ? ストレスで腹が減ったときは何も食べずに我慢した方がストレスに打ち克てる... &  & 19 & \\
+\hline
+10 & 健康 - Wikipedia &  &  & \bfseries 1\\
+\hline
+10 & 病院情報、家庭の医学、病気の検索、薬の情報、健康情報 - Yahoo ... &  &  & \bfseries 4 \\
+\hline
+10 & PCで眼が疲れない方法 - 萌え理論Blog & 12 & 17 & \\
+\hline
+9 & 指をポキポキ鳴らすと太くなるって本当？ &  & 20 & \\
+\hline
+9 & 姿勢をよくするための運動 - Tech Mom from Silicon Valley & 28 & 13 & \\
+\hline
+9 & NHK健康ホームページ：トップページ &  &  & 12 \\
+\hline
+8 & healthクリック｜健康 生活習慣病 サプリメント & \bfseries 1 & \bfseries 6 & \\
+\hline
+8 & 体の歪みを治したい:アルファルファモザイク & \bfseries 6 & \bfseries 2 & \\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\clearpage
+
+\begin{table}[htbp]
+\begin{center}
+\caption{「映画」で検索した場合の検索結果の中から被験者が選んだWebページ（人数）} 
+\label{tb:selectpage_eiganum}
+{\small
+\begin{tabular}[htbp]{|c|p{22zw}|p{5zw}|p{5zw}|p{4zw}|}
+\hline
+ \bf  人数  & \bf タイトル & \bf セレクトブクマ順位 & \bf ブックマーク数順位 & \bf Google検索順位  \\
+\hline
+5 & Yahoo!映画 - 映画情報 &  &  & \bfseries 1 \\
+\hline
+4 & 映画情報 - goo 映画 &  &  & \bfseries 2 \\
+ \hline
+4 & シネマぴあ &  &  & 26 \\
+\hline
+4 & TOHOシネマズ &  &  & \bfseries 7 \\
+\hline
+4 & 映画、映画館検索 - TSUTAYA online &  &  & 16 \\
+\hline
+4 & @nifty映画 - 映画情報 &  &  & 27 \\
+\hline
+4 & ワーナー・マイカル・シネマズ－映画館、映画情報、上映スケジュール ... &  &  & \bfseries 8 \\
+\hline
+3 & あの映画のココがわからない　まとめサイト & \bfseries 3 & \bfseries 3 & \\
+\hline
+3 & 【2ch】ニュー速クオリティ:一生のうちに一度は見ておくべき映画 &  & 11 & \\ 
+\hline
+3 & もっと知られていい映画:アルファルファモザイク &  & 14 & \\
+\hline
+3 & ★前田有一の超映画批評★ & \bfseries 1 & \bfseries 1 & 25 \\
+\hline
+3 & みんなのシネマレビュー & \bfseries 2 & \bfseries 2 & \\
+\hline
+3 & シネマスクランブル 映画予告編・映画ランキング・映画上映 ... &  &  & 13 \\
+\hline
+3 & 映画ならGyaO! 【映画】 無料映画の映像視聴｜GyaO![ギャオ]映画 &  &  & 30 \\
+\hline
+3 &【2ch】ニュー速クオリティ:観るまでバカにしてたのに観たら面白かった映画 &  & 27 & \\ 
+\hline
+3 & allcinema ONLINE 映画データベース & \bfseries 4 & \bfseries 4 & 12 \\
+\hline
+3 & eiga.com & \bfseries 9 & 18 & \bfseries 4 \\
+\hline
+3 & 109シネマズ公式ホームページ &  &  & 24 \\
+\hline
+3 & 映画・DVDと映画館の上映時間を完全網羅 | Movie Walker &  &  & \bfseries 3 \\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\clearpage
+
+\begin{table}[htbp]
+\begin{center}
+\caption{「映画」で検索した場合の検索結果の中から被験者が選んだWebページ（得点）} 
+\label{tb:selectpage_eigapoint}
+{\small
+\begin{tabular}[htbp]{|c|p{22zw}|p{5zw}|p{5zw}|p{4zw}|}
+\hline
+ \bf  得点 & \bf タイトル & \bf セレクトブクマ順位 & \bf ブックマーク数順位 & \bf Google検索順位  \\
+\hline
+29 & Yahoo!映画 - 映画情報 &  &  & \bfseries 1\\
+\hline
+28 & ワーナー・マイカル・シネマズ－映画館、映画情報、上映スケジュール ... &  &  & \bfseries 8\\
+\hline
+26 & TOHOシネマズ &  &  & \bfseries 7\\
+\hline
+25 & 映画、映画館検索 - TSUTAYA online &  &  & 16\\
+\hline
+25 & 【2ch】ニュー速クオリティ:観るまでバカにしてたのに観たら面白かった映画 &  & 27 & \\
+\hline
+23 & あの映画のココがわからない　まとめサイト & \bfseries 3 & \bfseries 3 & \\
+\hline
+21 & allcinema ONLINE 映画データベース & \bfseries 4 & \bfseries 4 & 12\\
+\hline
+20 & 109シネマズ公式ホームページ &  &  & 24\\
+\hline
+19 & 映画・DVDと映画館の上映時間を完全網羅 | Movie Walker &  &  & \bfseries 3\\
+\hline
+18 & eiga.com & \bfseries 9 & 18 & \bfseries 4\\
+\hline
+18 & 著作権の切れた過去の名作映画やドキュメンタリーをダウンロード - GIGAZINE & 27 &  & \\
+\hline
+17 & みんなのシネマレビュー & \bfseries 2 & \bfseries 2 & \\
+\hline
+17 & 痛いニュース(ﾉ∀`):大人が選ぶ泣ける洋画ベスト30　1「タイタニック」、2「アルマゲドン」 &  & 
+28 & \\
+\hline
+17 & 映画、ビデオ - Yahoo!カテゴリ &  &  & 17\\
+\hline
+16 & シネマぴあ &  &  & 26\\
+\hline
+15 & @nifty映画 - 映画情報 &  &  & 27\\
+\hline
+15 & 【2ch】ニュー速クオリティ:一生のうちに一度は見ておくべき映画 &  & 11 & \\
+\hline
+15 & 映画「サマーウォーズ」公式サイト &  &  & \bfseries 5\\
+\hline
+15 & 映画館・シネコンの【ムービックス-MOVIX】 &  &  & 11\\
+\hline
+14 & 映画ならGyaO! 【映画】 無料映画の映像視聴｜GyaO![ギャオ]映画 &  &  & 30\\
+\hline
+12 & 映画情報 - goo 映画 &  &  & \bfseries 2\\
+\hline
+12 & もっと知られていい映画:アルファルファモザイク &  & 14 & \\
+\hline
+12 & シネマスクランブル 映画予告編・映画ランキング・映画上映 ... &  &  & 13\\
+\hline
+12 & 無料映画館 &  &  & 28\\
+\hline
+11 & 新作映画情報「ぴあ映画生活」 &  &  & \bfseries 10\\
+\hline
+10 & ★前田有一の超映画批評★ & \bfseries 1 & \bfseries 1 & 25\\
+\hline
+10 & 『アバター』は映画の未来にiPhone登場なみの衝撃を与える &  &  & 19\\
+\hline
+9 & 時をかける少女 & 12 &  & \\
+\hline
+8 & flowerwild.net － 蓮實重彦インタビュー──リアルタイム批評のすすめvol.1 & 25 &  & \\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\clearpage
+
+\subsubsection{(3) 適合率・再現率による比較}
+	
+各手法においての，$適合率^{*8}$・$再現率^{*9}$を比較した．$適合率^{*8}$・$再現率^{*9}$の意味に関しては，1章の用語定義に示した．
+
+適合率・再現率を出すために必要な適合文書は，以下2種類作成した．
+\begin{enumerate}
+\item 3人以上の被験者が上位10位以内に選択したWebページ
+\item 被験者が選んだWebページの中で，得点の合計値が8点以上のWebページ
+\end{enumerate}
+
+全適合文書の件数を以下の表\ref{tb:correct}に示す．
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{全適合文書の件数}                %和文 caption
+      \label{tb:correct}
+      \begin{tabular}[hbt]{|c|c|c|c|}
+      \hline
+      \bf 単語名 & \bf java & \bf 健康 & \bf 映画  \\
+\hline
+人数[件] & 13 & 16 & 19 \\
+\hline
+得点[件] & 26 & 30 & 29 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+人数から全適合文書を作成した場合の適合率を図\ref{fig:precision_javanum}，図\ref{fig:precision_kenkounum}，図\ref{fig:precision_eiganum}に，得点から全適合文書を作成した場合の適合率を図\ref{fig:precision_javapoint}，図\ref{fig:precision_kenkoupoint}，図\ref{fig:precision_eigapoint}に示す．また，人数から全適合文書を作成した場合と得点から全適合文書を作成した場合の再現率を表\ref{tb:recall_java}～表\ref{tb:recall_eiga}に示す．
+適合率の値は，セレクトブクマ，ブックマーク数順，Google検索での検索結果1位～30位までに対する以下の値を示している．
+
+\begin{eqnarray}
+適合率 = \frac{適合文書の数}{検索結果の文書の数}
+\end{eqnarray}
+ここでいう検索結果の文書の数とは，1位の場合1，2位の場合2，．．．，30位の場合30となる．\\
+また，再現率の値は，以下の値を示している．
+
+\begin{eqnarray}
+再現率 = \frac{検索結果中の適合文書の数}{全適合文書の数}
+\end{eqnarray}
+
+\clearpage
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.6]{figure/precision_javanum.eps}
+      \caption{3人以上を適合文書とした場合の適合率(java)}          %和文 caption
+       \label{fig:precision_javanum}
+      \end{center}
+\end{figure}
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.6]{figure/precision_javapoint.eps}
+      \caption{8点以上を適合文書とした場合の適合率(java)}          %和文 caption
+       \label{fig:precision_javapoint}
+      \end{center}
+\end{figure}
+\begin{table}[htbp]
+      \begin{center}
+      \caption{再現率(java)}                %和文 caption
+      \label{tb:recall_java}
+      \begin{tabular}[hbt]{|c|c|c|c|}
+      \hline
+      \bf  & \bf セレクトブクマ & \bf ブックマーク数順 & \bf Google検索  \\
+\hline
+再現率※（人数） & 77％ & 38％ & 38％ \\
+\hline
+再現率※（得点） & 65％ & 50％ & 35％ \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+※再現率の値は，小数点第一位以下を四捨五入している．
+
+\clearpage
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.6]{figure/precision_kenkounum.eps}
+      \caption{3人以上を適合文書とした場合の適合率(健康)}          %和文 caption
+       \label{fig:precision_kenkounum}
+      \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.6]{figure/precision_kenkoupoint.eps}
+      \caption{8点以上を適合文書とした場合の適合率(健康)}          %和文 caption
+       \label{fig:precision_kenkoupoint}
+      \end{center}
+\end{figure}
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{再現率(健康)}                %和文 caption
+      \label{tb:recall_kenkou}
+      \begin{tabular}[hbt]{|c|c|c|c|}
+      \hline
+      \bf  & \bf セレクトブクマ & \bf ブックマーク数順 & \bf Google検索  \\
+\hline
+再現率※（人数） & 81％ & 69％ & 0％ \\
+\hline
+再現率※（得点） & 63％ & 60％ & 20％ \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+※再現率の値は，小数点第一位以下を四捨五入している．
+
+\clearpage
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.6]{figure/precision_eiganum.eps}
+      \caption{3人以上を適合文書とした場合の適合率(映画)}          %和文 caption
+       \label{fig:precision_eiganum}
+      \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.6]{figure/precision_eigapoint.eps}
+      \caption{8点以上を適合文書とした場合の適合率(映画)}          %和文 caption
+       \label{fig:precision_eigapoint}
+      \end{center}
+\end{figure}
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{再現率(映画)}                %和文 caption
+      \label{tb:recall_eiga}
+      \begin{tabular}[hbt]{|c|c|c|c|}
+      \hline
+      \bf  & \bf セレクトブクマ & \bf ブックマーク数順 & \bf Google検索  \\
+\hline
+再現率※（人数） & 26％ & 42％ & 74％ \\
+\hline
+再現率※（得点） & 28％ & 31％ & 69％ \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+※再現率の値は，小数点第一位以下を四捨五入している．
+
+\clearpage
+
+全体的に3人以上を適合文書とした場合の適合率が低いのは，表\ref{tb:correct}からわかるように，全適合文書の件数が少ないからである．逆に，再現率は，8点以上を適合文書としたときより，3人以上を適合文書とした場合の方が全体的に高い値となっている．これは，一般的に再現率は，全適合文書の数が少ないと高い値になる傾向があるためである．
+
+「java」に関しては，全体的にセレクトブクマにおいてもっとも高い適合率となっているが，特に高い順位においてその傾向は強い．また，再現率も人数で適合文書を作った場合，得点から適合文書を作った場合の両方において，セレクトブクマでもっとも高い値となった．
+
+「健康」に関しても，「java」と類似した結果となり，全体的にセレクトブクマにおいてもっとも高い適合率となっている．さらに，高い順位においてその傾向が強い．また，再現率も人数で適合文書を作った場合，得点から適合文書を作った場合の両方において，セレクトブクマでもっとも高い値となった．
+
+「映画」に関しては，「java」，「健康」とはまったく異なる結果となり，Google検索においてもっとも高い適合率となった．また，再現率も人数で適合文書を作った場合，得点から適合文書を作った場合の両方において，Google検索でもっとも高い値となった． 
+
+\subsubsection{(4) 得点の合計値による比較}
+	
+被験者が選んだWebページには，順位によって得点がついている．その得点がセレクトブクマ，ブックマーク数順，Google検索の検索結果のWebページに合計何点入っているか，比較する．セレクトブクマ，ブックマーク数順，Google検索において，検索結果上位10件，上位20件，上位30件の3つの得点の合計値を以下の表\ref{tb:point_java}～表\ref{tb:point_eiga}に示す．
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{「java」での検索結果の得点の合計値}                %和文 caption
+      \label{tb:point_java}
+      \begin{tabular}[hbt]{|c|c|c|c|}
+      \hline
+      \bf  & \bf セレクトブクマ & \bf ブックマーク数順 & \bf Google検索  \\
+\hline
+上位10件の合計値[点] & 162 & 152 & 23 \\
+\hline
+上位20件の合計値[点]  & 225 & 222 & 148 \\
+\hline
+上位30件の合計値[点]  & 322 & 279 & 195 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{「健康」での検索結果の得点の合計値}                %和文 caption
+      \label{tb:point_kenkou}
+      \begin{tabular}[hbt]{|c|c|c|c|}
+      \hline
+      \bf  & \bf セレクトブクマ & \bf ブックマーク数順 & \bf Google検索  \\
+\hline
+上位10件の合計値[点]  & 147 & 119 & 48 \\
+\hline
+上位20件の合計値[点]   & 269 & 208 & 92 \\
+\hline
+上位30件の合計値[点]  & 378 & 311 & 95  \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{「映画」での検索結果の得点の合計値}                %和文 caption
+      \label{tb:point_eiga}
+      \begin{tabular}[hbt]{|c|c|c|c|}
+      \hline
+      \bf  & \bf セレクトブクマ & \bf ブックマーク数順 & \bf Google検索  \\
+\hline
+上位10件の合計値[点]  & 89 & 77 & 163 \\
+\hline
+上位20件の合計値[点]  & 114 & 125 & 276 \\
+\hline
+上位30件の合計値[点]  & 153 & 169 & 371 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+結果を見ると「java」と「健康」においては，セレクトブクマで上位10件，上位20件，上位30すべてにおいて，もっとも高い合計得点となった．これに対して，「映画」においては，Google検索で上位10件，上位20件，上位30すべてにおいて，もっとも高い合計得点となった．
+
+	\subsection{時間情報を利用する効果について}
+今回被験者実験をおこなった検索単語は，技術系，生活系，娯楽系と3つの異なった分野から1つずつ，特別セレクトブクマが有利になるような単語を選ばずに，できるだけ一般的な単語を選んだ．そのため，「java」，「健康」，「映画」という単語を選ぶこととなったが，これらの単語はセレクトブクマとブックマーク数順の結果において，上位10件の中だけ見ても，その順位に変化はあるが，半数程度同一の結果が含まれる．
+
+これに対して，他の単語で検索した場合，もっとセレクトブクマとブックマーク数順で検索結果に相違がでるものも多い．例えば，「UI」で検索した場合は，上位10件の中に3件しか同一の結果が含まれない．そのため，「UI」の場合は，時間情報による影響がもっと強いといえる．
+
+さらに，現状セレクトブクマのランキングロジックは，以下のようになっている．\\
+\begin{eqnarray}
+Bookmarks \times Days^{\alpha}
+\end{eqnarray}
+{\itshape Bookmarks}：指定したタグでのブックマーク数\\
+{\itshape Days}：指定したタグでブックマークされた日数\\
+{\itshape α}：任意の指数\\
+ブックマーク数順は，日付にかける係数αの値が0のときと同義である．今回の実験は，α=1として実験をおこなったが，αの値をもっと大きくすれば，時間の影響が強くなり，セレクトブクマとブックマーク数順の検索結果の違いを大きくすることができる．αの値を変化させ，実験・評価をおこなうと時間情報を利用する効果についてもっと明確にできると考えられる．
+
+	\subsection{各実験結果からの考察}
+ここまでの各実験結果から，以下のようなことが考察できる．
+	\subsubsection{(1) 適合率からの考察}
+「java」で検索した場合，興味深いのは，Google検索の検索結果の順位が下がるにつれて，適合率が上昇傾向にあることである．このことから「java」という分野においては，Google検索の検索結果の上位が，一時的にしか利用しないWebページが多く，ユーザにとって今後も利用したいようなWebページが少ないということがわかる．この傾向は，他の一般的な検索エンジンを用いて「java」で検索してもGoogle検索と類似した結果が出るため，一般的な検索エンジン全体にいえるのではないかと考えられる．このため，少なくとも「java」という分野においては，一般的な検索エンジンが体系だった知識を得られるWebページや有益なWebサービスを手軽に発見・収集するためには，向かないのではないかと考えられる．
+
+これに対して，「java」で検索した場合，セレクトブクマでもっとも高い適合率が得られており，さらに高い順位程高い適合率が得られている．そのため，セレクトブクマが体系だった知識を得られるWebページや有益なWebサービスを手軽に発見するために有用であることを確認できた．ブックマーク数順と比較しても，高い順位程適合率の差が大きい傾向にあるため，時間情報を利用することによるフィルタリング効果も確認できた．
+
+「健康」や「映画」で検索した場合は，Google検索の検索結果の順位が高い程，適合率が高い傾向にあるので，検索結果上位の方に今後も利用したいようなWebページが多いことがわかる．特に「映画」といったような，大手企業がWebページを作ることにより利益を見込めるような分野では，多くの大手企業がWebページやWebサービスを作成し，内容も充実している場合が多い．こういったWebページがGoogle検索において上位にランキングしたため，「映画」における適合率が高い値になったのではないかと考えられる．そのため，このような分野においては，Google検索で有益なWebコンテンツを手軽に発見することができると考えられる．
+
+セレクトブクマにおいても，同様に検索結果の順位が高い程，高い適合率が得られているため，検索結果の上位に今後も利用したいようなWebページが多いことがわかる．ただし，Google検索とは，検索結果の傾向が異なり，検索結果には大手企業が作成したようなWebページはほとんど出てこない．そのため，個人で作成したようなWebページの中から，体系だった知識を得られるWebページや有益なWebサービスを発見したい場合，セレクトブクマが有効なのではないかと考えられる．
+
+	\subsubsection{(2) 再現率，得点の合計値からの考察}
+「java」，「健康」においては，人数から適合文書を作成した場合も得点から適合文書を作成した場合も，セレクトブクマの再現率がもっとも高い．さらに，得点の合計値も上位10件，上位20件，上位30件においてセレクトブクマがもっとも高い得点となっている．このことから，セレクトブクマにおいて，検索結果上位30件中には，Google検索と比較してもブックマーク数順と比較しても，体系だった知識を得られるWebページや有益なWebサービスの数が多いのではないかと考えられる．
+
+「映画」においては，Google検索において，すべての再現率，得点の合計値がもっとも高い値となっている．このことから，「映画」においては，Google検索において，検索結果上位30件中に体系だった知識を得られるWebページや有益なWebサービスの数がもっとも多いと考えられる．
+
+	\section{考察と課題}
+ここで，本研究における考察と課題について述べる．
+	\subsection{実験結果からの考察}
+実験結果より，セレクトブクマにおいて，「java」，「健康」という単語に関しては，Google検索やブックマーク数順に並べたものと比較して，もっとも高い適合率，再現率を得ることができた．このことから，セレクトブクマにおいて，今後も見たいような体系だった知識を得られるWebページや有益なWebコンテンツを手軽に収集できる可能性が高いと考えられる．
+
+だが，逆に「映画」という単語においては，Google検索と比較して適合率，再現率は大幅に低い値となった．この原因の１つとして，大手企業のWebページの評価が「映画」という分野において高かったことが依存していると考えられる．「映画」という分野においては，大手企業のWebページが多数あり，内容も充実している．そのため，Google検索でそういった大手企業のWebページが検索結果の上位に表示される傾向にあり，被験者がそういったWebページを選択することが多かった．個人で作成している映画関連のWebページでも，いくつか有益なレビューサイトやまとめサイトなどが存在するが，その数自体が少ない．そのため，「映画」という単語においては，Google検索での検索結果のWebページを選択したユーザが多く，Google検索結果で高い適合率・再現率となり，セレクトブクマで低い適合率・再現率となったと考えられる．
+
+	\subsection{時間情報を利用することの有効性}
+セレクトブクマでは，ソーシャルブックマークが長い間ブックマークされてるかどうかという指標を利用することによって，一時的にだけ面白い情報を排除し，体系だった知識を得られるWebページやいつ見ても有益なWebコンテンツを中心に取得することを目的としている．セレクトブクマとブックマーク数順を比較した場合，セレクトブクマにおいて高い適合率・再現率を得ることができた．また，特に上位10件の適合率が，ブックマーク数順と比較してセレクトブクマで高い値になっていることからも時間情報を利用することによって，一時的に必要とされる情報を排除できていることがわかった．
+
+	\subsection{本研究の有効性}
+検索結果や実験結果から，Google検索と比較してセレクトブクマでは，大手企業が作成しているWebページだけでユーザの満足が得られない分野において，有効性が高いと考えられる．個人で作成しているWebページは，数多くあり玉石混合である．そのため，既存のPageRankなどの手法では，Webコンテンツ作成者がリンクを貼った場合に，PageRankがあがるため，コンテンツ作成者しかWebページの評価をすることができない上，コンテンツ作成者が良いと思ったWebページにどんどんリンクを貼って行くようなWebページやコンテンツ作成者の数はそれほど多くない．これに対して，ソーシャルブックマークを利用した場合，コンテンツ消費者がブックマークをするという簡単な行為によって，コンテンツが評価される．そのため，個人が作成した玉石混合のWebページ群の中から，特に有益なWebページを発見するのに有用であると考えられる．
+
+	\subsection{課題}
+現時点のセレクトブクマでは，収集したデータ量不足の問題やはてなブックマークユーザのデータの偏りの問題がある．また，タグ数というものを指標にしているため，はてなブックマークユーザが，タグをつけにくい分野や単語での検索は，十分な結果が得られない場合が多い．同様にマイナーな分野では十分な結果が得られない場合が多く，万能な情報収集支援ツールとはなっていない．
+
+メジャーな分野においても，現在利用しているセレクトブクマのランキングロジックでは，体系だった知識を得られるWebページや有益なWebサービス以外を完全に排除できているは言えない．セレクトブクマの検索結果や被験者の選んだWebページやを見てもわかるように，上位10件のWebページの中にも体系だった知識を得られるWebページや有益なWebサービスではないものが存在する．さらに，上位10件の中にあるようなWebページよりも，あきらかに被験者にとって人気の高く有益である可能性の高いWebサービスなどが，上位20件以降になっている場合もある．
+
+また，セレクトブクマは，Web検索システムというより，どちらかというと，Webからの情報収集支援システムという位置付けとなっている．そのため，現在のようにセレクトブクマのWebページが一つあり，そこで検索するというアーキテクチャが良いとは限らない．情報収集支援システムとして，もっとよいインタフェースやアーキテクチャを模索していく必要がある．
+	\section{まとめ}
+本章では，ソーシャルブックマークの以下の特性を利用し，それに基づいた長期的に利用できる情報を検索するシステムの提案・実装・評価を行った．
+
+\begin{itemize}
+\item 短い期間しかブックマークされないWebページ\\
+→一時的に必要とされる種類のWebページが多い．
+\item 長い期間多くのユーザからブックマークされるWebページ\\
+→いつ見ても有用な情報を得られる種類のWebページが多い．
+\end{itemize}
+
+上述の特性に基づき，ソーシャルブックマークにおいて，ブックマークされる期間の長短という指標を利用した，情報収集支援システム「セレクトブクマ」を提案した．「セレクトブクマ」の評価実験として，「セレクトブクマ」，「Google検索」，「はてなブックマークのデータをブックマーク数順に並べたもの」の3つを比較した．その結果，「Google検索」と比較した場合，特に大手企業の作成したWebページでユーザが満足できず，個人が作成したようなWebページをユーザが利用している場合において「セレクトブクマ」が有用であることがわかった．さらに，「はてなブックマークのデータをブックマーク数順に並べたもの」と比較した場合にも，特に検索結果上位10件において，より適合率の高い値を得ることができた．ゆえに，時間情報を利用することによって，一時的に利用するWebページを排除し，今後も利用したいと思うような体系だった知識を得られるWebページや有益なWebコンテンツを取得することができることがわかった．
+
+以上の結果から，本研究のソーシャルブックマークの時間情報を利用した情報フィルタリング手法により，個人が作成している大量のWebコンテンツ群の中から，体系だった知識を得られるWebページや有益なWebサービスを中心に取得する一つの手法を提案できた．
+\include{end}

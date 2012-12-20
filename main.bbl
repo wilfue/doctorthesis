@@ -1,0 +1,558 @@
+\begin{thebibliography}{10}
+
+\bibitem{Amazon}
+Amazon.com.
+\newblock Amazon. http://www.amazon.com/, （参照 2010-01-11）.
+
+\bibitem{Breese1998}
+JS. Breese, D. Heckerman, C. Kadie.
+\newblock Empirical analysis of predictive algorithms for collaborative filtering.
+\newblock {\em Proceedings of the 14th conference on Uncertainty in artificial intelligence (UAI-98)}, pp. 43-52, 1998.
+
+\bibitem{digg}
+Digg.
+\newblock Digg. http://digg.com/, （参照 2010-01-11）.
+
+\bibitem{Golder2006}
+Scott A. Golder, Bernardo A. Huberman.
+\newblock Usage patterns of collaborative tagging systems.
+\newblock {\em Journal of Information Science Volume 32 Issue 2}, pp.198-208, 2006.
+
+\bibitem{Paul2007}
+Paul Heymann, Georgia Koutrika, and Hector Garcia-Molina.
+\newblock Can social bookmarking improve web search?
+\newblock  {\em Proceedings of the international conference on Web search and web data mining (WSDM’08)}, pp. 195-206, 2008.
+
+\bibitem{Kleinberg2008}
+Jon Kleinberg and Mark Sandler.
+\newblock Using mixture models for collaborative filtering.
+\newblock {\em Journal of Computer and System Sciences Volume 74}, pp. 49-69, 2008.
+
+\bibitem{Page1998}
+Page L, Brin S, Motwaniand R, Winograd T.
+\newblock The pagerank citation ranking: Bringing order to the web.
+\newblock {\em Technical report, Stanford Digital Library Technologies Project}, 1998.
+
+\bibitem{Loeb1992}
+S. Loeb, D. Terry.
+\newblock Information filtering.
+\newblock {\em Communications of the ACM, Vol. 35, No. 12}, pp. 26-81, 1992.
+
+\bibitem{Masada2005}
+T. Masada, T. Kanazawa, A. Takasu, J. Adachi.
+\newblock Improving web search by query expansion with a small number of terms.
+\newblock {\em Proceedings of the 5th NTCIR Workshop Meeting}, pp.486-493, 2005.
+
+\bibitem{Niwa2006}
+S. Niwa, T. Doi, S. Honiden.
+\newblock Web page recommender system based on folksonomy mining.
+\newblock  {\em Proceedings of the 3rd International Conference on Information Technology : New Generations (ITNG’06)}, pp. 388-393, 2006.
+
+\bibitem{Resnick1994}
+Paul Resnick, Neophytos Iacovou, Mitesh Suchak, Peter Bergstrom, John Riedl.
+\newblock Grouplens: An open architecture for collaborative filtering of netnews.
+\newblock {\em Proceedings of the 1994 ACM conference on Computer supported cooperative work (CSCW'94)}, pp. 175-186, 1994.
+
+\bibitem{Resnick1997}
+P. Resnick, H. Varian.
+\newblock Recommender systems.
+\newblock  {\em Communications of the ACM, Vol. 40, No. 3}, pp. 56-89, 1997.
+
+\bibitem{Riecken2000}
+D. Riecken.
+\newblock Personalized views of personalization.
+\newblock {\em Communications of the ACM, Vol. 43, No. 8}, pp. 26-158, 2000.
+
+\bibitem{Robertson1990}
+S.E. Robertson.
+\newblock On term selection for query expansion.
+\newblock {\em Journal of documentation, Vol. 46, No. 4}, pp. 359-364, 1990.
+
+\bibitem{Takahashi2008}
+Tsubasa Takahashi, Hiroyuki Kitagawa.
+\newblock S-bits: Social bookmarking induced topic search.
+\newblock {\em Proceedings of the 9th International Conference on Web-Age Information Management (WAIM2008)}, pp. 25-30, 2008.
+
+\bibitem{Twitter}
+Twitter.
+\newblock Twitter. https://twitter.com/, （参照 2010-01-11）.
+
+\bibitem{Xu2008}
+Shengliang Xu, Shenghua Bao, Ben Fei, Zhong Su, Yong Yu.
+\newblock Exploring folksonomy for personalized search.
+\newblock {\em Proceedings of the 31st annual international ACM SIGIR conference on Research and development in information retrieval (SIGIR '08)}, pp.155-162, 2008.
+
+\bibitem{delicious}
+Yahoo!
+\newblock Delicious. http://delicious.com/, （参照 2010-01-11）.
+
+\bibitem{Yanbe2007}
+Yusuke Yanbe, Adam Jatowt, Satoshi Nakamura, Katsumi Tanaka.
+\newblock Can social bookmarking enhance search in the web?
+\newblock  {\em Proceedings of the 7th ACM/IEEE-CS Joint Conference on Digital Libraries(JCDL 2007)}, pp. 107-116, 2007.
+
+\bibitem{Yanbe2007_}
+Yusuke Yanbe, Adam Jatowt, Satoshi Nakamura, Katsumi Tanaka.
+\newblock Towards improving web search by utilizing social bookmarks.
+\newblock  {\em Proceedings of the 7th International Conference on Web Engineering(ICWE 2007)}, 2007.
+
+
+
+
+
+
+\bibitem{Bing}
+Microsoft.
+\newblock Bing. http://www.bing.com/（参照 2012-12-9）.
+
+\bibitem{Google}
+Google.
+\newblock Google. http://www.google.com/（参照 2012-12-9）.
+
+\bibitem{Lingua}
+Takeshi Miki.
+\newblock Lingua-JA-Expand. http://search.cpan.org/~miki/Lingua-JA-Expand/（参照 2012-12-13）.
+
+\bibitem{GoogleInsights}
+Google.
+\newblock Google Insights for Search. http://www.google.com/insights/search/（参照 2012-5-31）.
+
+\bibitem{Reflexa}
+Preferred Infrastructure.
+\newblock 連想検索エンジンreflexa. http://labs.preferred.jp/reflexa/（参照 2012-12-13）.
+
+\bibitem{YouTube}
+Google.
+\newblock YouTube. http://www.youtube.com/（参照 2012-12-13）.
+
+\bibitem{Flickr}
+Yahoo!.
+\newblock Flickr. http://www.flickr.com/（参照 2012-12-13）.
+
+\bibitem{Yates1999}
+Ricardo Baeza-yates, Berthier Ribeiro-neto.
+\newblock  Modern Information Retrieval.
+\newblock  Addison Wesley, pp. 544, 1999.
+
+\bibitem{Kleinberg2002}
+Jon Kleinberg.
+\newblock  Bursty and hierarchical structure in streams.
+\newblock   {\em Proceedings of the 8th ACM SGKDD International Conference on Knowledge Discovery and Data Mining (SGKDD'02)}, pp. 91-101, 2002.
+
+\bibitem{Qiu1993}
+Yonggang Qiu, Hans-Peter Frei.
+\newblock  Concept Based Query Expansion.
+\newblock   {\em Proceedings of ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR'93)}, pp. 160-169, 1993.
+
+\bibitem{Barabasi2002}
+Albert-laszlo Barabasi, Jennifer Frangos.
+\newblock Linked: The New Science Of Networks Science Of Networks.
+\newblock Basic Books, pp. 288, 2002.
+
+\bibitem{Booth1967}
+Andrew D. Booth.
+\newblock A Law of Occurrences for Words of Low Frequency.
+\newblock  {\em Information and Control Vol. 10, No. 4}, pp. 386-393, 1967.
+
+\bibitem{Rech2007}
+Jorg Rech.
+\newblock Discovering trends in software engineering with google trend.
+\newblock  {\em ACM Sigsoft Software Engineering Notes, vol. 32, No. 2}, pp. 1-2, 2007.
+
+\bibitem{Hermann1979}
+Simon Hermann.
+\newblock Dynamics of Price Elasticty and Brand Life Cycle.
+\newblock  {\em Journal of Marketing Research} ,16(4), pp. 439-45, 1979.
+
+\bibitem{Roy2002}
+Soma Roy, David Gevry, William M. Pottenger.
+\newblock Methodologies for trend detection in textual datamining.
+\newblock {\em Textmine’02 Workshop, Second SIAM International Conference on Data Mining}, 2002.
+
+\bibitem{Rekimoto1999}
+Jun Rekimoto.
+\newblock Time-machine computing: a time-centric approach for the information environment.
+\newblock {\em Proceedings of the 12th annual ACM symposium on User interface software and technology (UIST'99)}, pp. 45-54, 1999.
+
+\bibitem{Soules2005}
+Craig A. N. Soules, Gregory R. Ganger.
+\newblock Connections: using context to enhance file search.
+\newblock {\em Proceedings of the twentieth ACM symposium on Operating systems principles}, pp. 119-132, 2005.
+
+\bibitem{Zhang2006}
+Z. Zhang, O. Nasraoui.
+\newblock Mining search engine query logs for query recommendation.
+\newblock {\em Proceedings of the 15th international conference on World Wide Web (WWW'06)}, pp. 1039-1040, 2006.
+
+\bibitem{Cao2008}
+H. Cao, D. Jiang, J. Pei, Q. He, Z. Liao, E. Chen and H. Li.
+\newblock Context-aware query suggestion by mining click-through and session data.
+\newblock {\em Proceeding of the 14th ACM SIGKDD international conference on Knowledge discovery and datamining (SIGKDD'08)}, pp. 875-883, 2008.
+
+\bibitem{White2007}
+Ryen W. White, Mikhail Bilenko, Silviu Cucerzan.
+\newblock Studying the use of popular destinations to enhance web search interaction.
+\newblock {\em Proceedings of the 30th annual international ACM SIGIR conference on Research and development in information retrieval (SIGIR'07)}, pp. 159-166, 2007.
+
+\bibitem{Agichtein2006}
+Eugene Agichtein, Eric Brill, Susan Dumais.
+\newblock Improving web search ranking by incorporating user behavior information.
+\newblock  {\em Proceedings of the 29th annual international ACM SIGIR conference on Research and development in information (SIGIR'06)}, pp. 19-26, 2006.
+
+\bibitem{Morris2007}
+Meredith Ringel Morris, Eric Horvitz.
+\newblock SearchTogether: an interface for collaborative web search.
+\newblock {\em Proceedings of the 20th annual ACM symposium on User interface software and technology (UIST'07)}, pp. 3-12, 2007.
+
+\bibitem{Salton1975}
+G. Salton, A. Wong, C. S. Yang.
+\newblock A vector space model for automatic indexing.
+\newblock {\em Communications of the ACM, Vol. 18, No. 11}, pp. 613-620, 1975.
+
+\bibitem{Ishikawa2007}
+Yoshiharu Ishikawa, Mikine Hasegawa.
+\newblock T-Scroll: Visualizing Trends in a Time-Series of Documents for Interactive User Exploration.
+\newblock {\em European Conference on Digital Libraries  (ECDL'07)}, pp. 235-246, 2007.
+
+\bibitem{Granovetter1978}
+Granovetter M.
+\newblock Threshold Models of Collective Behavior.
+\newblock {\em American Journal of Sociology, Vol.83(6)}, pp. 1420-43, 1978.
+
+\bibitem{Granovetter1986}
+Granovetter M, R Soong.
+\newblock Threshold Models of Interpersonal Effects in Consumer Demand.
+\newblock {\em Journal of Economic Behavior and Organization}, 7, pp. 83-99, 1986.
+
+
+\bibitem{Chakrabarti1998}
+Soumen Chakrabarti, Byron Dom, Prabhakar Raghavan, Sridhar Rajagopalan, David Gibson, Jon M. Kleinberg.
+\newblock Automatic Resource Compilation by Analyzing Hyperlink Structure and Associated Text.
+\newblock {\em Computer Networks and Isdn Systems - CN, Vol. 30, No. 1-7}, pp. 65-74, 1998.
+
+\bibitem{Wolfers2004}
+Justin Wolfers, Eric Zitzewitz.
+\newblock Prediction Markets.
+\newblock {\em Financial Analysts Journal - FINANC ANAL J, Vol. 18, No. 2}, pp. 107-126, 2004.
+
+\bibitem{Shneiderman1994}
+Ben Shneiderman.
+\newblock Dynamic Queries for Visual Information Seeking.
+\newblock {\em IEEE Software - SOFTWARE , Vol. 11, No. 6}, pp. 70-77, 1994.
+
+\bibitem{Ahlberg1994}
+Christopher Ahlberg, Ben Shneiderman.
+\newblock Visual information seeking: tight coupling of dynamic query filters with starfield displays.
+\newblock {\em Computer Human Interaction (CHI'94)}, pp. 222-317, 1994.
+
+\bibitem{Pemberton1994}
+Joseph C. Pemberton, Richard E. Korf.
+\newblock Incremental Search Algorithms for Real-time Decision Making.
+\newblock {\em International Conference on Automated Planning and Scheduling/Artificial Intelligence Planning Systems - ICAPS(AIPS)}, pp. 140-145, 1994.
+
+\bibitem{Raskin2000}
+J Raskin.
+\newblock The humane interface: new directions for designing interactive systems.
+\newblock Addison-Wesley Professional, pp. 256, 2000.
+
+
+\bibitem{Jeh2003}
+Glen Jeh, Jennifer Widom.
+\newblock Scaling personalized web search.
+\newblock {\em World Wide Web Conference Series (WWW'03)}, pp. 271-279, 2003.
+
+\bibitem{Liu2004}
+Fang Liu, Clement T. Yu, Weiyi Meng.
+\newblock Personalized Web Search For Improving Retrieval Effectiveness.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering (TKDE'04) , Vol. 16, No. 1}, pp. 28-40, 2004.
+
+\bibitem{Deerwester1990}
+Scott C. Deerwester, Susan T. Dumais, George W. Furnas, Thomas K. Landauer, Richard A. Harshman.
+\newblock Indexing by Latent Semantic Analysis.
+\newblock {\em Journal of The American Society for Information Science and Technology - JASIS , Vol. 41, No. 6}, pp. 391-407, 1990.
+
+
+\bibitem{Berry1995}
+Michael W. Berry, Susan T. Dumais, Gavin W. O’Brien.
+\newblock Using Linear Algebra for Intelligent Information Retrieval.
+\newblock {\em Siam Review - SIAM REV , Vol. 37, No. 4}, 1995.
+
+\bibitem{McCallum1998}
+Andrew K. McCallum, Kamal Nigam.
+\newblock A comparison of event models for Naive Bayes text classification.
+\newblock {\em Proceedings of AAAI-98 Workshop on Learning for Text Categorization}, pp. 41-48, 1998.
+
+\bibitem{Scholkopf1999}
+B. Scholkopf, C. J. C. Burges, A. J. Smola.
+\newblock Advances in kernel methods : support vector learning.
+\newblock {\em The MIT Press}, 1999.
+
+\bibitem{Cristianini2000}
+N. Cristianini, J. Shawe-taylor.
+\newblock An introduction to support vector machines and other kernel-based learning methods.
+\newblock {\em Cambridge University Press}, 2000.
+
+\bibitem{Roccio1971}
+J. J. Roccio.
+\newblock Relevance feedback in information retrieval.
+\newblock {\em The Smart Retrieval System: Experiments in Automatic Document Processing, ed. G.Salton}, pp. 313-323, 1971.
+
+\bibitem{Resnick1997}
+Paul Resnick, Hal R. Varian.
+\newblock Recommender systems.
+\newblock {\em TCommunications of The ACM - CACM , Vol. 40, No. 3}, pp. 56-58, 1997.
+
+\bibitem{Joachims1996}
+Thorsten Joachims, Dayne Freitag.
+\newblock WebWatcher: A Tour Guide for the World Wide Web.
+\newblock {\em TInternational Joint Conference on Artificial Intelligence (IJCAI'96) }, 1996.
+
+\bibitem{Joachims1996}
+Liren Chen, Katia P. Sycara.
+\newblock WebMate: a personal agent for browsing and searching.
+\newblock {\em Autonomous Agents ＆ Multiagent Systems International Conference on Autonomous Agents (AAMAS'98) }, pp. 132-139, 1998.
+
+
+
+
+
+
+\bibitem{Pathtraq}
+サイボウズ・ラボ株式会社.
+\newblock Pathtraq. http://pathtraq.com/, （参照 2010-01-11）.
+
+\bibitem{niftyclip}
+ニフティ株式会社.
+\newblock @nifty クリップ. http://clip.nifty.com/, （参照 2010-01-11）.
+
+\bibitem{yahoobookmark}
+ヤフー株式会社.
+\newblock Yahoo!ブックマーク. http://bookmarks.yahoo.co.jp/all, （参照
+  2010-01-11）.
+
+\bibitem{buzzurl}
+株式会社ECナビ.
+\newblock Buzzurl [バザール]. http://buzzurl.jp/, （参照 2010-01-11）.
+
+\bibitem{hatebu}
+株式会社はてな.
+\newblock はてなブックマーク. http://b.hatena.ne.jp/, （参照 2010-01-11）.
+
+\bibitem{livedoorclip}
+株式会社ライブドア.
+\newblock livedoor クリップ - ソーシャルブックマーク.
+  http://clip.livedoor.com/, （参照 2010-01-11）.
+
+\bibitem{Dairiki2008}
+大力慶祐, 大向一輝, 武田英明.
+\newblock ソーシャルブックマークにおけるイノベータに注目した情報推薦手法の提案.
+\newblock  人工知能学会第 22 回全国大会 (JSAI2008), 2008.
+
+\bibitem{Siratuti2006}
+白土慧, 吉井伸一郎, 古川正志.
+\newblock ソーシャルブックマークサービスを利用した情報レコメンデーション.
+\newblock  情報処理学会研究報告. ICS, 知能と複雑系, pp.15-20, 2006.
+
+\bibitem{Kita2002}
+北研二, 津田和彦, 獅々堀正幹.
+\newblock 情報検索アルゴリズム.
+\newblock  共立出版, 2002.
+
+\bibitem{Tsuda2000}
+津田宏治.
+\newblock サポートベクターマシンとは何か.
+\newblock 電子情報通信学会誌 83(6), pp. 460-466, 2000.
+
+\bibitem{Sasaki2007}
+佐々木祥, 宮田高道, 稲積泰宏, 小林亜樹, 酒井善則.
+\newblock Social Bookmarkにおけるコンテンツクラスタ間の類似度を用いたwebコンテンツ推薦システム.
+\newblock  情報処理学会論文誌 データベース 48, pp. 14-27, 2007.
+
+\bibitem{Ohtsuka2006}
+大塚真吾, 喜連川優.
+\newblock 大規模アクセスログを用いた検索語想起支援システムの提案とその評価.
+\newblock  情報処理学会研究報告. データベース・システム研究会報告, pp. 25--32, 2006.
+
+\bibitem{Kamishima2008}
+神嶌敏弘.
+\newblock 推薦システムのアルゴリズム(3).
+\newblock  人工知能学会誌, pp. 248-263, 2008.
+
+\bibitem{Shin2004}
+兼宗進.
+\newblock 検索エンジンの検索アルゴリズム.
+\newblock  情報の科学と技術. Vol. 54, No. 2, pp. 78-83, 2004.
+
+\bibitem{Yoshida2007}
+吉田大我, 小山聡, 中村聡史, 田中克己.
+\newblock Web 検索結果におけるキーワード出現相関の可視化と対話的な質問変換.
+\newblock  電子情報通信学会第18回データ工学ワークショップ(DEWS2007), pp. 1-8, 2007.
+
+\bibitem{matsumoto2001}
+松本知弥子, 馬強, 田中克己.
+\newblock Webページのローカル度検出に基づく情報フィルタリング.
+\newblock  情報処理学会研究報告,Vol. 125, No. 36(DBWS2001), pp. 273-280, 2001.
+
+\bibitem{Ohishi2009}
+大石哲也, 倉元俊介, 峯恒憲, 長谷川隆三, 藤田博, 越村三幸.
+\newblock 関連単語抽出アルゴリズムを用いたweb検索クエリの生成.
+\newblock  電子情報通信学会論文誌 D Vol. J92-D, No. 3, pp. 281-292, 2009.
+
+\bibitem{Fukuhara1998}
+福原知宏.
+\newblock 協調フィルタリングに関する研究動向.
+\newblock  奈良先端科学技術大学院大学学内研究報告資料, 1998.
+
+\bibitem{Kawai2005}
+河合由起子, 官上大輔, 田中克己.
+\newblock 個人の選好に基づく複数ニュースサイトの記事収集・閲覧システム.
+\newblock  情報処理学会論文誌. データベース 46, pp. 14-25, 2005.
+
+\bibitem{Kawanaka2009}
+川中翔, 佐藤周行.
+\newblock ソーシャルブックマークにおけるタグの派生関係の抽出.
+\newblock  修士論文, 2009.
+
+
+
+
+\bibitem{Uehara1995}
+上原征彦, 福田亮.
+\newblock  ロングセラーの論理とその戦略.
+\newblock  マーケティング・ジャーナル, 第59号, pp. 6-15.
+
+\bibitem{Takei2004}
+竹井潔.
+\newblock 情報の価値とライフサイクル管理.
+\newblock 聖学院大学論叢17(1), pp. 11-31.
+
+\bibitem{Kensou2004}
+兼宗進.
+\newblock  検索エンジンの検索アルゴリズム.
+\newblock  情報の科学と技術, Vol. 54, No. 2, pp. 78-83.
+
+\bibitem{Okumura2004}
+奥村学, 南野朋之, 藤木稔明, 鈴木泰裕.
+\newblock  blogページの自動収集と監視に基づくテキストマイニング.
+\newblock  人工知能学会, セマンティックウェブとオントロジー研究会, SIG-SWO-A401-01.
+
+\bibitem{Ohtsuka2005}
+大塚真吾, 豊田正史, 喜連川優.
+\newblock 大域ウェブアクセスログを用いた関連語の発見法に関する一考察.
+\newblock 情報処理学会論文誌：データベース, Vol. 46, No.SIG8(TOD26), pp. 82-92.
+
+\bibitem{Imai2010}
+今井良太, 戸田浩之, 関口裕一郎, 望月崇由, 鈴木智也, 今井桂子.
+\newblock Web検索サービスにおける多義的なクエリ推薦手法.
+\newblock 日本データベース学会論文誌 Vol. 9, No. 1, pp. 7-11, 2010.
+
+\bibitem{Kita2010}
+木田巧, 豊田正史, 喜連川優.
+\newblock トレンドを考慮した検索クエリの分類手法の一検討.
+\newblock 日本データベース学会論文誌 9(1), pp. 12-17, 2010.
+
+\bibitem{Koutani2007}
+甲谷優, 湯本高行, 小山聡, 田中克己.
+\newblock Web ページに対する典型的なクエリの発見.
+\newblock 情報処理学会研究報告. データベース・システム研究会報告 2007(65), pp. 49-54, 2007.
+
+\bibitem{Yasukawa2007}
+安川美智子, 横尾英俊.
+\newblock クエリログから獲得した関連語のクラスタリングに基づくWeb検索.
+\newblock 電子情報通信学会論文誌. D, 情報・システム J90-D(2), pp. 269-280, 2007.
+
+\bibitem{Matsui2011}
+松井優也, 河合由起子.
+\newblock 人と情報の検索および相互作用を目指したソーシャルサーチシステムの研究開発.
+\newblock 日本ソフトウェア科学会論文誌, コンピュータソフトウェア,  Vol. 28, No.4, pp. 196-205, 2011.
+
+\bibitem{Morita1996}
+森田昌宏 , 速水治夫.
+\newblock 情報フィルタリングシステム : 情報洪水への処方箋.
+\newblock 情報処理 37(8), pp. 751-758, 1996.
+
+\bibitem{Kita1999}
+北 研二, 辻井潤一.
+\newblock 言語と計算(4) 確率的言語モデル.
+\newblock 東京大学出版会, pp. 230, 1999.
+
+\bibitem{Nakayama2003}
+中山 晶一朗.
+\newblock ロジット型離散選択に基づいた流行現象モデル.
+\newblock 理論と方法 18(1), pp. 89-102, 2003.
+
+\bibitem{Matsuda1996}
+松田光司.
+\newblock 流行現象とベクトル型閾値モデル.
+\newblock 理論と方法 11(2), pp. 113-128, 1996.
+
+\bibitem{Kawane2000}
+河根拓文, 村重淳, 合原一幸.
+\newblock 2次元しきい値分布を利用した流行現象の数理モデルとその解析.
+\newblock 電子情報通信学会論文誌. A, 基礎・境界 J83-A(3), pp. 284-293, 2000.
+
+\bibitem{Hattori2012}
+服部哲弥.
+\newblock 確率的ランキング : 流行度の順位付けとロングテール分析.
+\newblock オペレーションズ・リサーチ : 経営の科学 57(6), pp. 302-307, 2012.
+
+\bibitem{Chinda2009}
+珍田計幸 , 大沢英一.
+\newblock 弱い紐帯の概念を利用したWWW上からの情報抽出手法の提案.
+\newblock 電子情報通信学会技術研究報告. AI, 人工知能と知識処理 108(456), pp. 99-104, 2009.
+
+
+\bibitem{Kurihara2004}
+栗原聡, 廣津登志夫, 高田敏弘, 明石修, 菅原俊治.
+\newblock ユーザのアクセス履歴を利用した類似Webサイト発見手法.
+\newblock 電子情報通信学会論文誌. D-I, 情報・システム, I-情報処理 J87-D-I(6), pp. 741-742, 2004.
+
+\bibitem{Kawai2009}
+河合英紀，Jatowt, A.，田中克己，國枝和雄，山田敬嗣.
+\newblock ChronoSeeker: Web からの過去・未来情報のオンデマンド検索エンジン.
+\newblock Webとデータベースに関するフォーラム (WebDB Forum) 2009, 1B-4, 2009.
+
+\bibitem{Yoshida2010}
+吉田光男, 乾孝司, 山本幹雄.
+\newblock Webニュースを用いた未来情報年表の自動構築.
+\newblock 第3回楽天研究開発シンポジウム, 2010.
+
+\bibitem{Asahi2009}
+旭直人, 山本岳洋, 中村聡史, 田中克己.
+\newblock 挟みこむ検索:2オブジェクトからの補間オブジェクト発見.
+\newblock 情報処理学会研究報告. データベース・システム研究会報告 2009-DBS-149(4), pp. 1-8, 2009.
+
+\bibitem{Kawata2009}
+川田正明 , 小川克彦.
+\newblock アノニマイズされた行動履歴に基づく行動パターン検索方式の提案.
+\newblock 情報処理学会論文誌 50(4), pp. 1251-1261, 2009.
+
+\bibitem{Takabayashi2002}
+高林哲, 小松弘幸, 増井俊之.
+\newblock Migemo : 日本語のインクリメンタル検索.
+\newblock 情報処理学会論文誌 43(12), pp. 3698-3705, 2002.
+
+\bibitem{Nishimoto2008}
+西本卓也, 岩田英三郎, 櫻井実, 廣瀬治人.
+\newblock 探索的検索のための音声入力インタフェースの検討.
+\newblock 情報処理学会研究報告. HCI, ヒューマンコンピュータインタラクション研究会報告 2008(11), pp. 9-14, 2008.
+
+\bibitem{Masui2003}
+増井俊之.
+\newblock 近傍関係を活用した情報検索.
+\newblock 情報処理学会研究報告. HI, ヒューマンインタフェース研究会報告 2003(69), pp. 53-58, 2003.
+
+\bibitem{Hijikata2004}
+土方嘉徳.
+\newblock 情報推薦・情報フィルタリングのためのユーザプロファイリング技術.
+\newblock 人工知能学会論文誌 19(3), pp. 365-372, 2004.
+
+\bibitem{Hijikata}
+山家雄介, 中村聡史, アダムヤトフト, 田中克己.
+\newblock ソーシャルブックマーキングの周期性発見と時期連動型検索ランキングへの適用.
+\newblock 情報処理学会論文誌. データベース 2(3), pp. 130-140, 2009.
+
+
+
+
+\end{thebibliography}

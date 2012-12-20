@@ -1,0 +1,68 @@
+This is JBibTeX, Version 0.99c-j0.33 (Web2C 7.5.4)
+The top-level auxiliary file: main.aux
+The style file: jplain.bst
+Reallocated wiz_functions (elt_size=4) to 3400 items from 0.
+Database file #1: mastersthesis.bib
+Warning--empty booktitle in Amazon
+Warning--empty year in Amazon
+Warning--empty booktitle in digg
+Warning--empty year in digg
+Warning--empty booktitle in twitter
+Warning--empty year in twitter
+Warning--empty booktitle in delicious
+Warning--empty year in delicious
+Warning--empty booktitle in Pathtraq
+Warning--empty year in Pathtraq
+Warning--empty booktitle in niftyclip
+Warning--empty year in niftyclip
+Warning--empty booktitle in yahoobookmark
+Warning--empty year in yahoobookmark
+Warning--empty booktitle in buzzurl
+Warning--empty year in buzzurl
+Warning--empty booktitle in hatebu
+Warning--empty year in hatebu
+Warning--empty booktitle in livedoorclip
+Warning--empty year in livedoorclip
+You've used 40 entries,
+            2620 wiz_defined-function locations,
+            806 strings with 10022 characters,
+and the built_in function-call counts, 16404 in all, are:
+= -- 1295
+> -- 555
+< -- 21
++ -- 232
+- -- 190
+* -- 757
+:= -- 2188
+add.period$ -- 110
+call.type$ -- 40
+change.case$ -- 215
+chr.to.int$ -- 0
+cite$ -- 60
+duplicate$ -- 983
+empty$ -- 1616
+format.name$ -- 285
+if$ -- 3862
+int.to.chr$ -- 0
+int.to.str$ -- 40
+missing$ -- 40
+newline$ -- 193
+num.names$ -- 80
+pop$ -- 553
+preamble$ -- 1
+purify$ -- 175
+quote$ -- 0
+skip$ -- 829
+stack$ -- 0
+substring$ -- 689
+swap$ -- 218
+text.length$ -- 21
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 160
+warning$ -- 20
+while$ -- 122
+width$ -- 42
+write$ -- 393
+is.kanji.str$ -- 419
+(There were 20 warnings)

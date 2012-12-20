@@ -1,0 +1,161 @@
+%% definition of title
+\makeatletter
+\newdimen\vspacetitle \newdimen\vspaceabstract
+\vspacetitle=0.5\textheight
+\vspaceabstract=0.5\textheight
+
+\newif\iflabels\labelsfalse
+\def\author#1{\gdef\@author{#1}}
+\def\advisor#1#2{\gdef\@advisor{#1}\gdef\@shoku{#2}}
+\def\heiseiyear#1{\gdef\@heiseiyear{#1}}
+\def\makelabels{\global\labelstrue}
+
+\setlength{\textwidth}{15.9cm}
+\setlength{\oddsidemargin}{2mm}
+\setlength{\evensidemargin}{2mm}
+\setlength{\topmargin}{-1cm}
+\setlength{\textheight}{24.0cm}
+\setlength{\footskip}{13mm}
+\setlength{\baselineskip}{40pt} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% THEOREM-LIKE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\catcode`@=11
+\renewcommand{\@begintheorem}[2]{\it \trivlist            %change the argument
+      \item[\hskip \labelsep{\bf #1\ #2{\rm :}}]}         %of \labelsep 
+\renewcommand{\@opargbegintheorem}[3]{\it \trivlist       %as you like.
+      \item[\hskip \labelsep{\bf #1\ #2\ {\rm (#3)\/:}}]}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTIONING %%%%%%%%%%%%%%%%%%%%%%
+\def\@sect#1#2#3#4#5#6[#7]#8{\ifnum #2>\c@secnumdepth
+     \def\@svsec{}\else 
+     \refstepcounter{#1}\edef\@svsec{\csname the#1\endcsname{.}\hskip 1em }\fi
+     \@tempskipa #5\relax
+      \ifdim \@tempskipa>\z@ 
+        \begingroup #6\relax
+          \@hangfrom{\hskip #3\relax\@svsec}{\interlinepenalty \@M #8\par}
+        \endgroup
+       \csname #1mark\endcsname{#7}\addcontentsline
+         {toc}{#1}{\ifnum #2>\c@secnumdepth \else
+                      \protect\numberline{\csname the#1\endcsname}\fi
+                    #7}\else
+        \def\@svsechd{#6\hskip #3\@svsec #8\csname #1mark\endcsname
+                      {#7}\addcontentsline
+                           {toc}{#1}{\ifnum #2>\c@secnumdepth \else
+                             \protect\numberline{\csname the#1\endcsname}\fi
+                       #7}}\fi
+     \@xsect{#5}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{property}[theorem]{性質}
+\newtheorem{remark}[theorem]{注意}
+\newtheorem{example}[theorem]{例}
+\newtheorem{conjecture}[theorem]{予想}
+\newtheorem{exercise}[theorem]{例題}
+\newtheorem{observation}[theorem]{観察}
+\newtheorem{definition}[theorem]{定義}
+
+\def\proof{\par\noindent{(証明)} \ignorespaces}
+\def\endproof{\vbox{
+               \hrule height0.6pt
+               \hbox{%
+                     \vrule height1.3ex width0.6pt\hskip0.8ex
+                     \vrule width0.6pt}
+               \hrule height0.6pt
+               }
+              }
+
+\def\maketitle{\par
+\begingroup
+\@maketitle
+\endgroup
+}
+
+%表紙の定義
+\def\@maketitle{
+\thispagestyle{empty}
+\begin{center}
+{\Large 平成\@heiseiyear 年度}
+\vspace{1cm}
+
+{\Large 慶應義塾大学}
+\vspace{1cm}
+
+{\Large 博士論文}
+\vspace{4cm}
+
+{\LARGE \@title} 
+\vspace{9cm}
+
+{\Large 政策・メディア研究科}
+\vspace{0.5cm}
+
+{\Large \@author }
+\vspace{2cm}
+
+%{\Large \@advisor\ \@shoku 研究プロジェクト}
+{\Large }
+\vspace{\fill}
+
+{\large \@date}
+\end{center}
+\newpage
+}
+
+%abstract環境再定義
+\renewenvironment{abstract}{%
+\pagenumbering{roman}
+\vspace*{4cm}
+\begin{center}{\large\bf \abstractname}\end{center}
+}
+{
+\vfill
+\newpage
+}
+
+%目次環境再定義
+\renewcommand{\tableofcontents}{%
+\section*{\contentsname}
+  \@starttoc{toc}
+\begin{flushleft}
+\bfseries 謝辞 \hspace{14.2cm} \bfseries 100 \\
+ \vspace{0.5cm}
+\bfseries 研究業績  \hspace{13.5cm} \bfseries 101\\
+ \vspace{0.5cm}
+\bfseries 参考文献  \hspace{13.5cm} \bfseries 102\\
+ \vspace{0.5cm}
+\bfseries 付録A  \hspace{13.8cm} \bfseries 110\\
+ \vspace{0.5cm}
+\bfseries 付録B  \hspace{13.8cm} \bfseries 110\\
+\end{flushleft}
+\newpage
+\pagenumbering{arabic} 
+}
+
+%ラベルの定義
+\newcommand{\writelabels}{%
+\newpage
+\thispagestyle{empty}
+\setlength{\unitlength}{1mm}
+\begin{picture}(170,230)(20,0)
+\put(0,230){\dashbox{1}(165,15){\Huge\bf 平成 \@heiseiyear 年度 卒業制作}}
+\put(0,170){\dashbox{1}(165,55){\begin{minipage}{16cm}\begin{center}\Huge\bf \@title\end{center}\end{minipage}}}
+\put(0,140){\dashbox{1}(165,25){\Huge\bf \@author}}
+\put(0,110){\dashbox{1}(165,25){\Huge\bf 慶應義塾大学環境情報学部}}
+\put(0,0){\dashbox{1}(10,80){\hfill\begin{minipage}{6mm}{\LARGE\bf 卒業制作}\end{minipage}\hfill}}
+\put(30,0){\dashbox{1}(10,60){\hfill\begin{minipage}{6mm}{\begin{center}{\LARGE\bf 平成 \@heiseiyear 年度}\end{center}}\end{minipage}\hfill}}
+\put(60,0){\dashbox{1}(10,80){\hfill\begin{minipage}{6mm}{\LARGE\bf \@author}\end{minipage}\hfill}}
+\end{picture}
+}
+
+%ラベルの書き出し
+\let\enddocumentorg=\enddocument
+\def\enddocument{
+\iflabels\writelabels\fi
+\enddocumentorg
+}
+\makeatother

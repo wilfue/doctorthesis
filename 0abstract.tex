@@ -1,0 +1,70 @@
+\documentclass[a4j,11pt]{jreport}
+\include{begin}
+\maketitle
+\baselineskip 19pt
+
+\begin{center}
+\LARGE{博士論文  　2012年度（平成24年度)}
+
+\end{center}
+\begin{center}
+\LARGE{時間情報を利用した長期的に利用する\\情報へのアクセスに関する研究}
+\end{center}
+\section*{論文要旨}
+本研究では、長期的に利用される情報に特化した情報検索手法と情報アクセス手法の提案を行う。ここでは、このような手法を「長期的検索」と呼ぶ。また、長期的検索を行うために、情報がどれだけ長期的に利用されているかの指標として、「長期度」という指標を提案する。
+
+情報には様々な利用のされ方がある。例えば、ある一定の短い期間でしか利用されないもの、長期的に利用されるもの、周期的に利用されるものなどである。このような利用のされ方によって、情報の種類や今後の有用性などをある程度予測できる。ここで筆者は、長期的に利用されている情報は、これまで長期間にわたって利用されてきたという実績があるため、今後も長期的に利用される可能性が高いと考えた。そのため、こういった情報の有用である可能性が高いのではないかと考えた。情報の検索手法として、人気の情報や今流行りの情報を検索する手法は数多く提案され、システムとして実現されているが、長期的に利用される情報に特化して検索する手法やシステムはほとんど存在しない。そのため、現状では、長期的に利用されている有用な情報でも、特別人気が高くない場合、見つけることが難しい場合もある。そこで本研究では、長期的検索という新しい概念を提唱し、長期的に利用される情報を見つける手法を提案する。
+
+
+長期的に利用される情報の具体的な例として、「Webページ」、「検索キーワード」、「ファイル」という3つの例に焦点を当てて、「セレクトブクマ」、「MasteryEye」、「タームストア」という3つのシステムを開発した。
+
+セレクトブクマは、長期的に利用できるWebページに特化して検索するためのシステムである。ここではまず、ソーシャルブックマークのブックマーク時間情報を利用することによって、Webページがどのように利用され、ブックマークされているかを分析した。そして、その分析結果に基づき、長期的なWebページを検索できるように設計・実装をおこなった。セレクトブクマの画面上でキーワードを入力して検索を行うことによって、入力したキーワードに関連したWebページの中で、長期的に利用されているWebページを検索することができる。例えば、体系的だった知識を得られるWebページ、Webサービス、リファレンスなどに特化して検索することを目的としている。
+
+MasteryEyeは、長期的にされ続ける検索キーワードを見つけるためのシステムである。Google検索における検索回数の時系列データを利用することによって、このような検索キーワードを見つけることができるようにシステムの設計・実装をおこなった。MasteryEyeの画面上で入力したキーワードに関連するものの中で、長期的に検索されている検索キーワードを提示する。ある分野について新しく学びたい場合に、定番の検索キーワードを手軽に取得することを目的としている。
+
+タームストアは、システムの利用者がこれまでに長期的にアクセスしてきたファイルとWebページを提示するシステムである。タームストアでは、ユーザがこれまでアクセスしてきたファイルとWebアクセスの履歴に基づき、統合的にファイルやWebページを提示する。また、ファイルやWebページの管理を必要とせずに、これらの情報に手軽にアクセスできるようにすることを目的としている。
+
+これら3つのシステムを試作し、分析および評価実験を行った。本論文では、分析および評価実験の結果を示し、長期的検索の意義や有効性についても議論する。
+
+
+
+\section*{キーワード}
+情報検索、情報フィルタリング、情報レコメンデーション、長期的利用、ソーシャルブックマーク、検索キーワード、ファイルアクセス、アクセス履歴
+
+\vspace{2cm}
+\begin{flushright}
+慶應義塾大学 大学院政策・メディア研究科
+
+上野 大樹
+
+
+\end{flushright}
+
+
+
+\newpage
+\begin{center}
+\LARGE{Abstract of Doctor's Thesis Academic Year 2012}
+
+\end{center}
+\begin{center}
+\LARGE{Research on access to Long Term Information Focusing Time Scale}
+\end{center}
+\section*{Summary}
+In this research, we proposed information retrieval method and information access method that find information used for a long-term. We call those method "Long-term Retrieval". Moreover, we proposed  "Degree of Long-term" that is an index of which information was used for a long-term.
+
+\section*{Key Word}
+Information Retrieval, Information Filtering, Information Recommendation, Long Term Usage, Social Bookmark, Retrieval Keyword, File Access, Access History
+
+\vspace{2cm}
+\begin{flushright}
+Keio University Graduate School of Media and Governance
+
+Taiki Ueno
+
+\end{flushright}
+
+
+
+\newpage
+\include{end}
