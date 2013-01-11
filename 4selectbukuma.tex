@@ -7,7 +7,7 @@
 	\newpage
 
 	\section{背景}
-近年Web上のコンテンツは多種多様になってきており，Web上に存在する体系だった知識や長期的に有用なWebページを手軽に取得することが容易ではなくなってきている．これに対して，既存のWeb検索手法を用いてもある程度こういった情報を取得することは可能だが，既存の手法には，体系だった知識を得られるWebページや長期的に有用なWebページを中心に取得する手法はほとんど存在しない．また，自分では有用なWebページやWebサービスの存在になかなか気付けない場合も多く，知人からの口コミによってその存在に気付かされる場合もある．口コミによってようやくWebの有用な情報に気付くことが多いという場合，ユーザがうまくWebを使いこなせていない可能性が高く，非常に有益な情報を逃している可能性も高い．自分の興味のある分野の有用なWebページやコンテンツに関しては，Web上で簡単に発見できるようになれば，こういった問題も解決できる．
+Web上のコンテンツは多種多様になってきており，Web上に存在する体系だった知識や長期的に有用なWebページを手軽に取得することが容易ではなくなってきている．これに対して，既存のWeb検索手法を用いてもある程度こういった情報を取得することは可能だが，既存の手法には，体系だった知識を得られるWebページや長期的に有用なWebページを中心に取得する手法はほとんど存在しない．また，自分では有用なWebページやWebサービスの存在になかなか気付けない場合も多く，知人からの口コミによってその存在に気付かされる場合もある．口コミによってようやくWebの有用な情報に気付くことが多いという場合，ユーザがうまくWebを使いこなせていない可能性が高く，非常に有益な情報を逃している可能性も高い．自分の興味のある分野の有用なWebページやコンテンツに関しては，Web上で簡単に発見できるようになれば，こういった問題も解決できる．
 
 これに対して，本研究ではWeb上に存在する多種多様で玉石混合のWebコンテンツの中でも，長期的に利用できるWebページや体系だった知識を得られるWebページは，長期的に多くのユーザからアクセスされたり，ブックマークされたりするという仮説を立てた．この仮説を検証するため，ユーザのブックマーク情報を共有できるサービスであるソーシャルブックマークのデータを分析した．データの分析に基づき，一時期に限りブックマークされるWebページは，一時的に必要とされる種類のWebページが多いのに対し，長い間多くのユーザからブックマークされ続けるWebページは，いつ見ても有用な情報を得られる種類のWebページが多いことを示した．この特性に基づき，効率よく長期的に利用できる有用なWebページや体系だった知識を得られるWebページを検索するシステム「セレクトブクマ」を提案，実装し，評価実験を行った．
 
@@ -89,7 +89,7 @@
 \begin{figure}[htbp]
       \begin{center}
       \includegraphics[scale=0.5]{figure/bookmark_date1.eps}
-      \caption{一時的にブックマークされ，その後ほとんどブックマークされなくなるタイプのページ}          %和文 caption
+      \caption{一時的にブックマークされ，その後ほとんどブックマークされなくなるタイプのページ}       
        \label{fig:bookmark_date1}
       \end{center}
 \end{figure}
@@ -97,7 +97,7 @@
 \begin{figure}[htbp]
       \begin{center}
       \includegraphics[scale=0.5]{figure/bookmark_date2.eps}
-      \caption{一時的に大量にブックマークされ，その後も長い間ブックマークされ続けるタイプのページ}          %和文 caption
+      \caption{一時的に大量にブックマークされ，その後も長い間ブックマークされ続けるタイプのページ}      
        \label{fig:bookmark_date2}
       \end{center}
 \end{figure}
@@ -105,7 +105,7 @@
 \begin{figure}[htbp]
       \begin{center}
       \includegraphics[scale=0.5]{figure/bookmark_date3.eps}
-      \caption{大量にブックマークされる時期はないが，長い間ブックマークされ続けるタイプのページ}          %和文 caption
+      \caption{大量にブックマークされる時期はないが，長い間ブックマークされ続けるタイプのページ}       
        \label{fig:bookmark_date3}
       \end{center}
 \end{figure}
@@ -145,7 +145,152 @@
 
 図\ref{fig:type_short}，図\ref{fig:type_long}から分かるように，Type1のWebページでは，「ニュース・話題」，「議論・日記」，「サービス・ツール紹介」が上位を占めており，一時的に利用される傾向の強いWebページが大半を占めている．これに対して，Type2のWebページでは，「Webサービス」，「総合的技術解説サイト」，「まとめサイト」が上位を占めており，長期間にわたって利用される傾向の強いWebページが大半を占めていることが分かった．このことから，Type2のような長期間にわたってブックマークされ続けるようなWeb ページを優先的に取得することによって，Type1のような一時的に利用される傾向の強いWebページをフィルタリングして，いつ見ても有用なWebぺージのみを検索できる可能性が高いことがわかった．
 
-	
+
+	\subsection{長期度の分析}
+長期的にブックマークされ続けるようなWebページは，長期的に利用できるWebページが多いこと分かったため，本研究で提案した長期度計算手法を適用して分析を行う．ここでの分析のため，ブックマーク数100以上のWebページをランダムに100ページ取得した．取得した100ページに対して，3.1で述べた長期度I，長期度II，長期度IIIを利用して長期度を計算した．ここで，長期度I，II，IIIの利用数は，ブックマーク数とした．また，長期度II，IIIにおける単位時間を1日とした．そのため，単位時間あたりの利用数は，1日あたりのブックマーク数となる．また，長期度IIにおける縦軸の最大値は100とした．
+
+表\ref{tb:sbm_long_high}，表\ref{tb:sbm_long_low}にそれぞれの計算手法で計算した，長期度上位10件と下位10件のページのタイトルを示す．
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{各長期度での上位10件}                
+      \label{tb:sbm_long_high}
+      \begin{tabular}[hbt]{|c|p{12zw}|p{12zw}|p{12zw}|}
+      \hline
+      \bf  順位 & \bf 長期度I & \bf 長期度II & \bf 長期度III\\
+      \hline
+1 & MOONGIFT|オープンソース・ソフトウェア，ITニュースを毎日紹介するエンジニア，デザイナー向けブログ & MOONGIFT|オープンソース・ソフトウェア，ITニュースを毎日紹介するエンジニア，デザイナー向けブログ & 無料大容量ファイル転送サービス「宅ふぁいる便」\\
+        \hline
+2 & Gmail×Firefox＝最強！ ～GmailをFirefoxで使い倒す！～ & 無料大容量ファイル転送サービス「宅ふぁいる便」 & finalventの日記 \\
+ \hline
+3 & FrontPage - EclipseWiki & FrontPage - EclipseWiki & MOONGIFT|オープンソース・ソフトウェア，ITニュースを毎日紹介するエンジニア，デザイナー向けブログ\\
+ \hline
+4 & Dreamweaverの代わりになるフリーソフト「Aptana」 - GIGAZINE & トラックフィード - リンクが張られたら瞬時に通知するアクセス解析ツール & FrontPage - EclipseWiki\\
+ \hline
+5 & 無料大容量ファイル転送サービス「宅ふぁいる便」 & お笑いコピペ選手権の記録 & EyesPic - フリー画像素材\\
+ \hline
+6 & Google ソースコード検索 & EyesPic - フリー画像素材 & トラックフィード - リンクが張られたら瞬時に通知するアクセス解析ツール\\
+ \hline
+7 & トラックフィード - リンクが張られたら瞬時に通知するアクセス解析ツール & SEO/SEM対策をするなら無料で使えるツールが豊富のFerretPLUS（フェレットプラス） & お笑いコピペ選手権の記録\\
+ \hline
+8 & EyesPic - フリー画像素材 & コリス & コリス\\
+ \hline
+9 & 白地図，世界地図，日本地図が無料【白地図専門店】 & ウーマシャンプー【口コミで話題】 & Apple - Support \\
+ \hline
+10 & finalventの日記 & finalventの日記 & SEO/SEM対策をするなら無料で使えるツールが豊富のFerretPLUS（フェレットプラス）     \\
+  \hline
+      \end{tabular}
+      \end{center}
+\end{table}
+
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{各長期度での下位10件}                
+      \label{tb:sbm_long_low}
+      \begin{tabular}[hbt]{|c|p{12zw}|p{12zw}|p{12zw}|}
+      \hline
+      \bf  順位 & \bf 長期度I & \bf 長期度II & \bf 長期度III\\
+      \hline
+91 & 宮崎勤死刑に思い出すこと． & 高精度計算サイト &  「私，ここで結婚できますか？」と聞く女子大生，どう思います？：NBonline(日経ビジネス オンライン) \\
+      \hline
+92 & mixi規約改定問題　「ユーザーが著作者の時代」にまた繰り返す大騒動 (1/2) - ITmedia ニュース & 私的録音録画小委員会：反対意見多数でも「ダウンロード違法化」のなぜ (1/2) - ITmedia ニュース & なぜプログラミングが楽しくなくなったのか・日本的ソフトウエア観（1）-ビジネス-最新ニュース:IT-PLUS\\
+      \hline
+93 &  総務省：通信・放送法制統合へ　ネット情報も規制 - 毎日ｊｐ(毎日新聞) & ホームページ - Google Maps API - Google Developers & 痛いニュース(ﾉ∀`):「『私は手取り３４万円の薄給…橋下知事は大阪のこと考えろ』…大阪府職員の甘えた考え」…デジタルマガジン\\
+      \hline
+94 & なぜプログラミングが楽しくなくなったのか・日本的ソフトウエア観（1）-ビジネス-最新ニュース:IT-PLUS & "WindowsからMacに""Switch""した人のための10のTips" & asahi.com:暗い所で本「目悪くなる」医学的根拠ないと米チーム\\
+      \hline
+95 & 京．電車．現実と虚構の狭間で - 深町秋生のベテラン日記 & バッハからワーグナーまで，無料のクラシック音楽を集めた「Classic Cat」 - GIGAZINE &  [mixi] カズ←金欠('A`)さん | 交通事故　なんで俺らが･･･\\
+      \hline
+96 & マンガや雑誌に埋もれ，仙台市の男性死亡　地震による可能性（産経新聞） - Yahoo!ニュース & 白地図，世界地図，日本地図が無料【白地図専門店】 & 京．電車．現実と虚構の狭間で - 深町秋生のベテラン日記\\
+      \hline
+97 & 死刑執行の音をラジオで放送　文化放送が５月に特別番組（SANSPO.COM ） & Google ソースコード検索 & おっくせんまんの歌詞ができるまで． - Myrmecoleon in Paradoxical Library. ニコニコ分室 - ニコニコ部 \\      
+\hline
+98 & サッカーを毛嫌いする理由「読売テレビ」（ツカサネット新聞） - Yahoo!ニュース & 黄金比をサイトのデザインに取り入れる簡単な３つの方法 | コリス & 明石家さんまの眠らない哲学 - てれびのスキマ\\
+      \hline
+99 & 明石家さんまの眠らない哲学 - てれびのスキマ & Dreamweaverの代わりになるフリーソフト「Aptana」 - GIGAZINE & 死刑執行の音をラジオで放送　文化放送が５月に特別番組（SANSPO.COM ）\\
+      \hline
+100 &  [mixi] カズ←金欠('A`)さん | 交通事故　なんで俺らが･･･ & Gmail×Firefox＝最強！ ～GmailをFirefoxで使い倒す！～ & マンガや雑誌に埋もれ，仙台市の男性死亡　地震による可能性（産経新聞） - Yahoo!ニュース\\
+        \hline
+      \end{tabular}
+      \end{center}
+\end{table}
+
+
+これらの結果のタイトルから，長期度I，長期度II，長期度IIIいずれの手法を利用した場合も，長期度上位10件は，長期的に利用するようなタイプのページが多いことが分かる．また，それと比較して下位10件では，特に長期度Iと長期度IIIにおいて，一時的にしか利用しないようなタイプのページが多いことが分かる．
+
+また，長期度I，長期度II，長期度IIIの関係性について分析を行った．ランダムに取得した100ページに対して，長期度I～IIIそれぞれの値の大きさで，1位～100位まで順位付けを行った．そして，それぞれの順位を利用して，スピアマンの順位相関係数を求めた．結果を表\ref{tb:long123_coefficient}に示す．
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{各長期度の相関係数}                
+      \label{tb:long123_coefficient}
+      \begin{tabular}[hbt]{|p{12zw}|p{12zw}|p{12zw}|}
+      \hline
+      \bf  比較する長期度 & \bf 相関係数 & \bf 相関の度合い\\
+      \hline
+      長期度Iと長期度II & 0.59 &  中位の正の相関\\
+       \hline
+      長期度Iと長期度III & 0.69 &  高い正の相関 \\
+       \hline     
+       長期度IIと長期度III & 0.51 &  中位の正の相関\\
+       \hline
+      \end{tabular}
+      \end{center}
+\end{table}
+
+表\ref{tb:long123_coefficient}を見ると分かるように，相関係数の値は0.51～0.69となり，それぞれ中位の正の相関か，高い正の相関が観測された．このことから，長期度I，長期度II，長期度IIIは異なる長期度計算手法であるが，それぞれにある程度相関関係があることが確認できた．
+
+また，1日あたりのブックマーク数の時系列データが，べき分布になっているか調べるために，以下の図\ref{fig:ld2_high2}，図\ref{fig:ld2_low2}に長期度IIで計算した，上位3件と下位3件のグラフを示す．
+これらのグラフは，1日毎のブックマーク数を多い順に並べたものとする．また，グラフの縦軸が1日毎のブックマーク数，横軸が順位であり，グラフは両対数グラフである．長期度IIは，べき分布との差分の値を長期度としているため，この値の上位3件と下位3件は，取得した100ページの中でも，べき分布からのズレが大きいページとなる．これらのグラフから分かるように，べき分布からあまり大きく離れたグラフになっていないことが分かる．このことから，ブックマーク数が100以上多い場合，1日毎のブックマーク数がべき分布に近づくことが分かった．この結果から，ブックマーク数が多い場合，データがべき分布に近い値になるため，長期度IIIのべき分布に近似したときの傾きによって長期度を求める手法が，効果的であると考えられる．
+
+そこで，長期度IIIの値が1位，50位，100位のページのデータとそのデータを最小二乗法によって，べき分布に近似したデータを以下の図\ref{fig:ld3_1}，図\ref{fig:ld3_50}，図\ref{fig:ld3_100}に示す．これらのグラフから分かるように，元データと最小二乗法によってべき分布に近似したデータで，大きな違いが出ないことと，Webページによって傾きの値に大きな違いが出ることとが分かった．
+
+また，それぞれのべき分布の傾きは，小数点第3位以下を四捨五入して，1位のページが-0.46，50位のページが-1.46，100位のページが-2.83となった．
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.6]{figure/ld2_high2.eps}
+      \caption{長期度II 上位2ページ}         
+       \label{fig:ld2_high2}
+      \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.6]{figure/ld2_low2.eps}
+      \caption{長期度II 下位2ページ}          
+       \label{fig:ld2_low2}
+      \end{center}
+\end{figure}
+
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.5]{figure/Id3_1.eps}
+      \caption{長期度III 1位のページ}          
+       \label{fig:ld2_low2}
+      \end{center}
+\end{figure}
+
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.5]{figure/Id3_50.eps}
+      \caption{長期度III 50位のページ}          
+       \label{fig:ld2_low2}
+      \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.5]{figure/Id3_100.eps}
+      \caption{長期度III 100位のページ}          
+       \label{fig:ld2_low2}
+      \end{center}
+\end{figure}
+
+
 	\section{セレクトブクマの提案}
 ここでは，提案システムであるセレクトブクマについて述べる．
 	\subsection{セレクトブクマの概要}
@@ -207,7 +352,7 @@ Ranking = Bookmarks \times Days^{\alpha}
 {\itshape Days}：指定したタグでブックマークされた日付の合計日数\\
 {\itshape α}：指数（セレクトブクマでは1）
 
-ここで，「指定したタグでブックマークされた日付の合計日数」とは，例えば4月20日，5月8日，7月13日にユーザの誰かからブックマークされたとしたら，3とする．ここでの日付は，日本標準時（JST）での日付としている．また，セレクトブクマでは，指数$\alpha$の値は1としているが，$\alpha$の値が大きければ大きいほど，時間情報の影響が強くなる．逆に$\alpha$の値が小さいほど、そのページの人気（ブックマーク数）の影響が強くなる。本研究では，検索結果のランキング手法について，さまざまな手法を考案し，試作した．ひとつひとつの手法についての詳細な評価は行っていないが，それぞれの手法の検索結果を確認したところ，上述の手法がシンプルかつ効果的であると考えられた．そのため，今回はこの計算手法を採用した．
+ここで，「指定したタグでブックマークされた日付の合計日数」とは，例えば4月20日，5月8日，7月13日にユーザの誰かからブックマークされたとしたら，3とする．ここでの日付は，日本標準時（JST）での日付としている．また，セレクトブクマでは，指数$\alpha$の値は1としているが，$\alpha$の値が大きければ大きいほど，時間情報の影響が強くなる．逆に$\alpha$の値が小さいほど，そのページの人気（ブックマーク数）の影響が強くなる．本研究では，検索結果のランキング手法について，さまざまな手法を考案し，試作した．ひとつひとつの手法についての詳細な評価は行っていないが，それぞれの手法の検索結果を確認したところ，上述の手法がシンプルかつ効果的であると考えられた．そのため，今回はこの計算手法を採用した．
 
 	\subsection{システム構成}
 セレクトブクマは，Webサービスとして実装した．画面の表示部分は，HTML，JSP，JavaScriptを利用し，計算などやデータベースとの連携は，主にJavaを利用している．JavaとJavaScriptの連携は，Ajax方式を用いて，JSON形式でデータの受け渡しをしている．ユーザが検索を行う場合，主に以下の手順でシステムが動作する．
@@ -241,7 +386,158 @@ Ranking = Bookmarks \times Days^{\alpha}
 \end{figure}
 
 
+	\section{セレクトブクマの運用と主な検索結果}
+ここでは，セレクトブクマを運用した結果，よく検索されたキーワードとその検索結果を示す．
+	\subsection{セレクトブクマの運用}
+セレクトブクマをWeb上に公開し，約2年間運用した．セレクトブクマでは，よく検索されているキーワードを以下の図\ref{fig:selectbukuma_favorite}のように提示している．
 
+\begin{figure}[htbp]
+      \begin{center}
+      \includegraphics[scale=0.45]{figure/selectbukuma_favorite.eps}
+      \caption{セレクトブクマ人気の検索キーワード}        
+       \label{fig:selectbukuma_favorite}
+      \end{center}
+\end{figure}
+
+図\ref{fig:selectbukuma_favorite}から分かるように，特に「java」，「ニコニコ動画」，「twitter」などのキーワードがよく検索されていることが分かる．
+
+	\subsection{主な検索結果}
+セレクトブクマを運用した結果，よく検索されたキーワードとその検索結果上位10件を以下の表\ref{tb:result_tech}～表\ref{tb:result_else}に示す．
+
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{技術分野上位3キーワードでの各検索結果上位10件}     
+      \label{tb:result_tech}
+      \begin{tabular}[hbt]{|c|p{12zw}|p{12zw}|p{12zw}|}
+      \hline
+      \bf  順位 & \bf java & \bf javascript & \bf php\\
+      \hline
+      1 &  Javaの道(Java入門：リファレンス） & 一撃必殺JavaScript日本語リファレンス &レッツPHP!\\
+        \hline
+         2 &  Javaの学習なら，JavaDrive & オブジェクト指向プログラム言語としてのJavaScript & symfony - open-source PHP5 web framework\\
+        \hline
+  	3 &  Java技術最前線：ITpro & IT戦記 - JavaScript OOP におけるクラス定義方法 & Maple Project\\
+        \hline
+  	4 &  浅煎り珈琲-Java アプリケーション入門 & 檜山正幸のキマイラ飼育記 - プログラマのためのJavaScript (0) & PEAR :: TOPページ\\
+        \hline
+  	5 &  頑健なJavaプログラムの書き方 & JavaScriptによるオブジェクト指向プログラミング & PHP マニュアル\\
+        \hline
+  	6 &  Java House ML & オブジェクトなJSの基礎講座 & PEAR マニュアル\\
+        \hline
+  	7 & JavaでHello World  & Core JavaScript 1.5 Guide - MDC& PHP入門\\
+        \hline
+  	8 & Java 2 Platform SE 5.0 &  glayer.js - グレーアウト表示ライブラリ & Smarty\\
+        \hline
+  	9 & Java in the Box & 高度な JavaScript 技集 & 初心者用PHP入門\\
+        \hline
+  	10 & Log4J徹底解説～目次 & 	JavaScriptでDOMを使う--オブジェクト指向入門の入門 - outsider reflex & 	symfony.jp PHP5フレームワークsymfonyの日本語情報\\
+        \hline
+      \end{tabular}
+      \end{center}
+\end{table}
+
+
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{趣味分野上位3キーワードでの各検索結果上位10件}     
+      \label{tb:result_hobby}
+      \begin{tabular}[hbt]{|c|p{12zw}|p{12zw}|p{12zw}|}
+      \hline
+      \bf  順位 & \bf ニコニコ動画 & \bf 映画 & \bf youtube\\
+      \hline
+      1 &  ニコニコチャート & ★前田有一の超映画批評★& YouTube Flash Player\\
+        \hline
+         2 & ニコニコ動画まとめwiki & みんなのシネマレビュー & YouTubeちゃんねる: YouTubポータル\\
+        \hline
+  	3 &  ニコニコ動画が言い続けた「アンチ集合知」とは何だったのか - Attribute=51 &  あの映画のココがわからない　まとめサイト & YouTubeのムービーをダウンロードしてMPEGに変換 - GIGAZINE\\
+        \hline
+  	4 &  ニコニコ動画でプレイリストが使えるGreasemonkeyスクリプト - こたにき & allcinema ONLINE 映画データベース & [N] YouTubeを便利に使うためのツール/サイト/情報のまとめ \\
+        \hline
+  	5 &  時速ニコメートル-ニコニコ動画視聴率 & 映画生活 - 新作映画情報 & ohaYouTube - おはようチューブ \\
+        \hline
+  	6 &  nico in hatebu - はてブで人気のニコニコ動画が一目で分かる & 超映画批評 & 削除されたYouTube動画を落とす「YouTube list to irv」 :にゅーあきばどっとこむ \\
+        \hline
+  	7 & ニコニコポン(α) - ニコニコ動画をちょっと便利にするツール集[FLBダウンロード]  & CinemaScape-映画批評空間- & YouTubeのストリーミング動画の保存法＠Angel Heart Club -Splash☆Star- \\
+        \hline
+  	8 & ニコRSS &  映画情報 - シネマカフェ cinemacafe.net & Tubeちゃんねる: ２ch風YouTubポータル\\
+        \hline
+  	9 & 動画の保存も出来るニコニコ動画（γ）専用ブラウザ - nicoTool & eiga.com & OK Go - Here It Goes Again\\
+        \hline
+  	10 & エンコード設定 - ニコニコ動画まとめwiki & いのちの食べかたL & 怖いYouTube \\
+        \hline
+      \end{tabular}
+      \end{center}
+\end{table}
+
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{社会・生活分野上位3キーワードでの各検索結果上位10件}     
+      \label{tb:result_social}
+      \begin{tabular}[hbt]{|c|p{12zw}|p{12zw}|p{12zw}|}
+      \hline
+      \bf  順位 & \bf 料理 & \bf 健康 & \bf 日本\\
+      \hline
+      1 &  男が作れる超簡単料理 & healthクリック｜健康 生活習慣病 サプリメント & ベア速 日本が世界有数の先進国である理由\\
+        \hline
+         2 &  ボブとアンジー & 基礎代謝を高めるための９９の技法 & ヤバイ．日本ヤバイ．まじでヤバイよ，マジヤバイ． 日本ヤバイ．:アルファルファモザイク\\
+        \hline
+  	3 &  ぱくぱく名無しさんのレシピ大全 & ゲンダイネット - 目の疲れをためない３大作戦 & ぁゃιぃ(*ﾟーﾟ)NEWS 2nd 日本文化は身内受けの凝り性文化 \\
+        \hline
+  	4 &  レシピ検索No.1／料理レシピ載せるなら クックパッド & 視力回復マッサージは本当に効き目があるのだ（映像付） | i d e a * i d e a & 「韓国には白か黒しかない．灰色はないんだ」　活字中毒R．\\
+        \hline
+  	5 &  おいしいチャーハンの作り方@ぬけない２ちゃんねる & 重い，痛いを吹き飛ばせ！ 肩コリ解消法 | Web担当者Forum & japan-guide.com\\
+        \hline
+  	6 &  レシピブログ & 体の歪みを治したい:アルファルファモザイク & さらば！「豊かな国日本」 - ビジネススタイル - nikkei BPnet\\
+        \hline
+  	7 & 鳥はむの館  & 病院検索ならここカラダ & アンカテ(Uncategorizable Blog) - 利権が無い文化を育てれば日本は生き残れる\\
+        \hline
+  	8 & 【味の素KK】レシピ大百科 &  意外に効き目のある視力回復マッサージ & 日本の暮らし二十四節気めぐり 言の葉草 | 伊勢志摩の旅 よいとこせ\\
+        \hline
+  	9 & 	ためしてガッテンに学ぶ定番料理17品の美味しい作り方 - Liner Note & 蒸しタオルを使うと酷使した目の疲れが取れる - GIGAZINE & 世界で一番美味いメシ - pal-9999の日記 \\
+        \hline
+  	10 & とろけるように柔らかい「豚の角煮」を手抜きで作る - GIGAZINE & MouRa｜Net現代｜巷にはびこる「健康情報」50のウソ・ホント & 日本再発見マップ \\
+        \hline
+      \end{tabular}
+      \end{center}
+\end{table}
+
+
+\begin{table}[htbp]
+      \begin{center}
+      \caption{その他分野上位3キーワードでの各検索結果上位10件}     
+      \label{tb:result_else}
+      \begin{tabular}[hbt]{|c|p{12zw}|p{12zw}|p{12zw}|}
+      \hline
+      \bf  順位 & \bf twitter & \bf 2ch & \bf まとめ\\
+      \hline
+      1 &  Twitter Friends Analyzer & 必死チェッカーもどき & まとめ.com\\
+        \hline
+         2 &  twitterfeed.com : feed your blog to twitter - post RSS to twitter automatically  & 2典Plus　２ちゃんねる用語サイト & 2chまとめ\\
+        \hline
+  	3 &  [観] Twitter API 仕様書 (勝手に日本語訳シリーズ) & 2chnavi - 2ちゃんねるスレ紹介／レス紹介blogまとめ & ストーリーを教えてもらうスレ暫定Wiki\\
+        \hline
+  	4 &  buzztter & 2ch DAT落ちスレ ミラー変換機 ver.４ & 80個以上のはてブ関連のGreasemonkeyまとめ - 聴く耳を持たない(片方しか)\\
+        \hline
+  	5 &  TwitterIrcGateway - misuzilla.org & 2ちゃんねる発の逮捕者 & お金を出す前に見るべきクチコミ情報サイトまとめ\\
+        \hline
+  	6 &  TweetStats :: Graphin' Your Stats & 2chまとめ & なにかと使える『名言ポータルサイト』まとめ | P O P * P O P\\
+        \hline
+  	7 & Twitter をはじめよう！ - GreenSpace & ２ちゃんねる検索 & なつみかん＠はてな - 便利な文房具＆文房具の使い方 まとめ\\
+        \hline
+  	8 & 日本語Twitter検索 : Search & ２ちゃんねる情報のRSS一覧 & FrontPage - FoNまとめwiki\\
+        \hline
+  	9 & TwitterまとめWiki & uraNews4VIP * 俺の先祖は恐ろしい人物かも知れない・・・ & TwitterまとめWiki \\
+        \hline
+  	10 & P3:PeraPeraPrv - とかいろいろ & www.tv2ch.info & マルチディスプレイ総合スレッドまとめサイト\\
+        \hline
+      \end{tabular}
+      \end{center}
+\end{table}
+
+この検索結果を見ると，それぞれの分野で，まとまった情報が載っているWebページが多いことが分かる．このため，セレクトブクマを利用したユーザが，本研究の目的の1つである体系だった知識を得られるWebページを取得できていることが分かる．
 
 
 	\section{評価実験}
@@ -1011,173 +1307,9 @@ Ranking = Bookmarks \times Days^{\alpha}
 
 「映画」においては，Google検索において，すべての再現率，得点の合計値がもっとも高い値となっている．このことから，「映画」においては，Google検索において，検索結果上位30件中に体系だった知識を得られるWebページや有益なWebサービスの数がもっとも多いと考えられる．
 
-	\section{セレクトブクマの運用と主な検索結果}
-ここでは、セレクトブクマを運用した結果、よく検索されたキーワードとその検索結果を示す。
-	\subsection{セレクトブクマの運用}
-セレクトブクマをWeb上に公開し、約2年間運用した。セレクトブクマでは、よく検索されているキーワードを以下の図\ref{fig:selectbukuma_favorite}のように提示している。
-
-\begin{figure}[htbp]
-      \begin{center}
-      \includegraphics[scale=0.45]{figure/selectbukuma_favorite.eps}
-      \caption{セレクトブクマ人気の検索キーワード}        
-       \label{fig:selectbukuma_favorite}
-      \end{center}
-\end{figure}
-
-図\ref{fig:selectbukuma_favorite}から分かるように、特に「java」、「ニコニコ動画」、「twitter」などのキーワードがよく検索されていることが分かる。
-
-	\subsection{主な検索結果}
-セレクトブクマを運用した結果、よく検索されたキーワードとその検索結果上位10件を以下の表\ref{tb:result_tech}～表\ref{tb:result_else}に示す。
 
 
-\begin{table}[htbp]
-      \begin{center}
-      \caption{技術分野上位3キーワードでの各検索結果上位10件}     
-      \label{tb:result_tech}
-      \begin{tabular}[hbt]{|c|p{12zw}|p{12zw}|p{12zw}|}
-      \hline
-      \bf  順位 & \bf java & \bf javascript & \bf php\\
-      \hline
-      1 &  Javaの道(Java入門：リファレンス） & 一撃必殺JavaScript日本語リファレンス &レッツPHP!\\
-        \hline
-         2 &  Javaの学習なら，JavaDrive & オブジェクト指向プログラム言語としてのJavaScript & symfony - open-source PHP5 web framework\\
-        \hline
-  	3 &  Java技術最前線：ITpro & IT戦記 - JavaScript OOP におけるクラス定義方法 & Maple Project\\
-        \hline
-  	4 &  浅煎り珈琲-Java アプリケーション入門 & 檜山正幸のキマイラ飼育記 - プログラマのためのJavaScript (0) & PEAR :: TOPページ\\
-        \hline
-  	5 &  頑健なJavaプログラムの書き方 & JavaScriptによるオブジェクト指向プログラミング & PHP マニュアル\\
-        \hline
-  	6 &  Java House ML & オブジェクトなJSの基礎講座 & PEAR マニュアル\\
-        \hline
-  	7 & JavaでHello World  & Core JavaScript 1.5 Guide - MDC& PHP入門\\
-        \hline
-  	8 & Java 2 Platform SE 5.0 &  glayer.js - グレーアウト表示ライブラリ & Smarty\\
-        \hline
-  	9 & Java in the Box & 高度な JavaScript 技集 & 初心者用PHP入門\\
-        \hline
-  	10 & Log4J徹底解説～目次 & 	JavaScriptでDOMを使う--オブジェクト指向入門の入門 - outsider reflex & 	symfony.jp PHP5フレームワークsymfonyの日本語情報\\
-        \hline
-      \end{tabular}
-      \end{center}
-\end{table}
-
-
-
-\begin{table}[htbp]
-      \begin{center}
-      \caption{趣味分野上位3キーワードでの各検索結果上位10件}     
-      \label{tb:result_hobby}
-      \begin{tabular}[hbt]{|c|p{12zw}|p{12zw}|p{12zw}|}
-      \hline
-      \bf  順位 & \bf ニコニコ動画 & \bf 映画 & \bf youtube\\
-      \hline
-      1 &  ニコニコチャート & ★前田有一の超映画批評★& YouTube Flash Player\\
-        \hline
-         2 & ニコニコ動画まとめwiki & みんなのシネマレビュー & YouTubeちゃんねる: YouTubポータル\\
-        \hline
-  	3 &  ニコニコ動画が言い続けた「アンチ集合知」とは何だったのか - Attribute=51 &  あの映画のココがわからない　まとめサイト & YouTubeのムービーをダウンロードしてMPEGに変換 - GIGAZINE\\
-        \hline
-  	4 &  ニコニコ動画でプレイリストが使えるGreasemonkeyスクリプト - こたにき & allcinema ONLINE 映画データベース & [N] YouTubeを便利に使うためのツール/サイト/情報のまとめ \\
-        \hline
-  	5 &  時速ニコメートル-ニコニコ動画視聴率 & 映画生活 - 新作映画情報 & ohaYouTube - おはようチューブ \\
-        \hline
-  	6 &  nico in hatebu - はてブで人気のニコニコ動画が一目で分かる & 超映画批評 & 削除されたYouTube動画を落とす「YouTube list to irv」 :にゅーあきばどっとこむ \\
-        \hline
-  	7 & ニコニコポン(α) - ニコニコ動画をちょっと便利にするツール集[FLBダウンロード]  & CinemaScape-映画批評空間- & YouTubeのストリーミング動画の保存法＠Angel Heart Club -Splash☆Star- \\
-        \hline
-  	8 & ニコRSS &  映画情報 - シネマカフェ cinemacafe.net & Tubeちゃんねる: ２ch風YouTubポータル\\
-        \hline
-  	9 & 動画の保存も出来るニコニコ動画（γ）専用ブラウザ - nicoTool & eiga.com & OK Go - Here It Goes Again\\
-        \hline
-  	10 & エンコード設定 - ニコニコ動画まとめwiki & いのちの食べかたL & 怖いYouTube \\
-        \hline
-      \end{tabular}
-      \end{center}
-\end{table}
-
-
-\begin{table}[htbp]
-      \begin{center}
-      \caption{社会・生活分野上位3キーワードでの各検索結果上位10件}     
-      \label{tb:result_social}
-      \begin{tabular}[hbt]{|c|p{12zw}|p{12zw}|p{12zw}|}
-      \hline
-      \bf  順位 & \bf 料理 & \bf 健康 & \bf 日本\\
-      \hline
-      1 &  男が作れる超簡単料理 & healthクリック｜健康 生活習慣病 サプリメント & ベア速 日本が世界有数の先進国である理由\\
-        \hline
-         2 &  ボブとアンジー & 基礎代謝を高めるための９９の技法 & ヤバイ。日本ヤバイ。まじでヤバイよ、マジヤバイ。 日本ヤバイ。:アルファルファモザイク\\
-        \hline
-  	3 &  ぱくぱく名無しさんのレシピ大全 & ゲンダイネット - 目の疲れをためない３大作戦 & ぁゃιぃ(*ﾟーﾟ)NEWS 2nd 日本文化は身内受けの凝り性文化 \\
-        \hline
-  	4 &  レシピ検索No.1／料理レシピ載せるなら クックパッド & 視力回復マッサージは本当に効き目があるのだ（映像付） | i d e a * i d e a & 「韓国には白か黒しかない。灰色はないんだ」　活字中毒R。\\
-        \hline
-  	5 &  おいしいチャーハンの作り方@ぬけない２ちゃんねる & 重い、痛いを吹き飛ばせ！ 肩コリ解消法 | Web担当者Forum & japan-guide.com\\
-        \hline
-  	6 &  レシピブログ & 体の歪みを治したい:アルファルファモザイク & さらば！「豊かな国日本」 - ビジネススタイル - nikkei BPnet\\
-        \hline
-  	7 & 鳥はむの館  & 病院検索ならここカラダ & アンカテ(Uncategorizable Blog) - 利権が無い文化を育てれば日本は生き残れる\\
-        \hline
-  	8 & 【味の素KK】レシピ大百科 &  意外に効き目のある視力回復マッサージ & 日本の暮らし二十四節気めぐり 言の葉草 | 伊勢志摩の旅 よいとこせ\\
-        \hline
-  	9 & 	ためしてガッテンに学ぶ定番料理17品の美味しい作り方 - Liner Note & 蒸しタオルを使うと酷使した目の疲れが取れる - GIGAZINE & 世界で一番美味いメシ - pal-9999の日記 \\
-        \hline
-  	10 & とろけるように柔らかい「豚の角煮」を手抜きで作る - GIGAZINE & MouRa｜Net現代｜巷にはびこる「健康情報」50のウソ・ホント & 日本再発見マップ \\
-        \hline
-      \end{tabular}
-      \end{center}
-\end{table}
-
-
-\begin{table}[htbp]
-      \begin{center}
-      \caption{その他分野上位3キーワードでの各検索結果上位10件}     
-      \label{tb:result_else}
-      \begin{tabular}[hbt]{|c|p{12zw}|p{12zw}|p{12zw}|}
-      \hline
-      \bf  順位 & \bf twitter & \bf 2ch & \bf まとめ\\
-      \hline
-      1 &  Twitter Friends Analyzer & 必死チェッカーもどき & まとめ.com\\
-        \hline
-         2 &  twitterfeed.com : feed your blog to twitter - post RSS to twitter automatically  & 2典Plus　２ちゃんねる用語サイト & 2chまとめ\\
-        \hline
-  	3 &  [観] Twitter API 仕様書 (勝手に日本語訳シリーズ) & 2chnavi - 2ちゃんねるスレ紹介／レス紹介blogまとめ & ストーリーを教えてもらうスレ暫定Wiki\\
-        \hline
-  	4 &  buzztter & 2ch DAT落ちスレ ミラー変換機 ver.４ & 80個以上のはてブ関連のGreasemonkeyまとめ - 聴く耳を持たない(片方しか)\\
-        \hline
-  	5 &  TwitterIrcGateway - misuzilla.org & 2ちゃんねる発の逮捕者 & お金を出す前に見るべきクチコミ情報サイトまとめ\\
-        \hline
-  	6 &  TweetStats :: Graphin' Your Stats & 2chまとめ & なにかと使える『名言ポータルサイト』まとめ | P O P * P O P\\
-        \hline
-  	7 & Twitter をはじめよう！ - GreenSpace & ２ちゃんねる検索 & なつみかん＠はてな - 便利な文房具＆文房具の使い方 まとめ\\
-        \hline
-  	8 & 日本語Twitter検索 : Search & ２ちゃんねる情報のRSS一覧 & FrontPage - FoNまとめwiki\\
-        \hline
-  	9 & TwitterまとめWiki & uraNews4VIP * 俺の先祖は恐ろしい人物かも知れない・・・ & TwitterまとめWiki \\
-        \hline
-  	10 & P3:PeraPeraPrv - とかいろいろ & www.tv2ch.info & マルチディスプレイ総合スレッドまとめサイト\\
-        \hline
-      \end{tabular}
-      \end{center}
-\end{table}
-
-この検索結果を見ると、それぞれの分野で、まとまった情報が載っているWebページが多いことが分かる。このため、セレクトブクマを利用したユーザが、本研究の目的の1つである体系だった知識を得られるWebページを取得できていることが分かる。
-
-	\section{考察と課題}
-ここで，本研究における考察と課題について述べる．
-	\subsection{実験結果からの考察}
-実験結果より，セレクトブクマにおいて，「java」，「健康」という単語に関しては，Google検索やブックマーク数順に並べたものと比較して，もっとも高い適合率，再現率を得ることができた．このことから，セレクトブクマにおいて，今後も見たいような体系だった知識を得られるWebページや有益なWebコンテンツを手軽に収集できる可能性が高いと考えられる．
-
-だが，逆に「映画」という単語においては，Google検索と比較して適合率，再現率は大幅に低い値となった．この原因の１つとして，大手企業のWebページの評価が「映画」という分野において高かったことが依存していると考えられる．「映画」という分野においては，大手企業のWebページが多数あり，内容も充実している．そのため，Google検索でそういった大手企業のWebページが検索結果の上位に表示される傾向にあり，被験者がそういったWebページを選択することが多かった．個人で作成している映画関連のWebページでも，いくつか有益なレビューサイトやまとめサイトなどが存在するが，その数自体が少ない．そのため，「映画」という単語においては，Google検索での検索結果のWebページを選択したユーザが多く，Google検索結果で高い適合率・再現率となり，セレクトブクマで低い適合率・再現率となったと考えられる．
-
-	\subsection{時間情報を利用することの有効性}
-セレクトブクマでは，ソーシャルブックマークが長い間ブックマークされているかどうかという指標を利用することによって，一時的にだけ面白い情報を排除し，体系だった知識を得られるWebページやいつ見ても有益なWebコンテンツを中心に取得することを目的としている．セレクトブクマとブックマーク数順を比較した場合，セレクトブクマにおいて高い適合率・再現率を得ることができた．また，特に上位10件の適合率が，ブックマーク数順と比較してセレクトブクマで高い値になっていることからも時間情報を利用することによって，一時的に必要とされる情報を排除できていることがわかった．
-
-	\subsection{本研究の有効性}
-検索結果や実験結果から，Google検索と比較してセレクトブクマでは，大手企業が作成しているWebページだけでユーザの満足が得られない分野において，有効性が高いと考えられる．個人で作成しているWebページは，数多くあり玉石混合である．そのため，既存のPageRankなどの手法では，Webコンテンツ作成者がリンクを貼った場合に，PageRankがあがるため，コンテンツ作成者しかWebページの評価をすることができない上，コンテンツ作成者が良いと思ったWebページにどんどんリンクを貼って行くようなWebページやコンテンツ作成者の数はそれほど多くない．これに対して，ソーシャルブックマークを利用した場合，コンテンツ消費者がブックマークをするという簡単な行為によって，コンテンツが評価される．そのため，個人が作成した玉石混合のWebページ群の中から，特に有益なWebページを発見するのに有用であると考えられる．
-
-	\subsection{課題}
+	\section{課題}
 現時点のセレクトブクマでは，収集したデータ量不足の問題やはてなブックマークユーザのデータの偏りの問題がある．また，タグ数というものを指標にしているため，はてなブックマークユーザが，タグをつけにくい分野や単語での検索は，十分な結果が得られない場合が多い．同様にマイナーな分野では十分な結果が得られない場合が多く，万能な情報収集支援ツールとはなっていない．
 
 メジャーな分野においても，現在利用しているセレクトブクマのランキングロジックでは，体系だった知識を得られるWebページや有益なWebサービス以外を完全に排除できているは言えない．セレクトブクマの検索結果や被験者の選んだWebページを見ると分かるが，上位10件のWebページの中にも体系だった知識を得られるWebページや有益なWebサービスではないものが存在する．さらに，上位10件の中にあるようなWebページよりも，あきらかに被験者にとって人気の高く有益である可能性の高いWebサービスなどが，上位20件以降になっている場合もある．
