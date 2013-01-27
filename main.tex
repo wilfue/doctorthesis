@@ -1,9 +1,14 @@
 \documentclass[a4paper,11pt,fleqn]{jreport}
 \usepackage{longtable}
+\usepackage{fancyhdr}
+
+
+
+%ページ番号の定義（目次まで）
 \pagenumbering{roman}
 \setcounter{page}{0}
-\input{begin}
 
+\input{begin}
 \renewcommand{\include}[1]{}
 \renewcommand\documentclass[2][]{}
 
@@ -11,13 +16,24 @@
 
 \input{0abstract}
 
+%目次を出力
+\lhead{目次}
+\rhead{目次}
+\renewcommand{\headrulewidth}{0.5pt}
 \tableofcontents
 \pagenumbering{roman}
 \setcounter{page}{6}
+\lhead{図目次}
+\rhead{図目次}
 \listoffigures
 \listoftables
+\lhead{表目次}
+\rhead{表目次}
 
+%ページ番号の定義（1章以降）
 \newpage
+\lhead{\leftmark}
+\rhead{\rightmark}
 \pagenumbering{arabic}
 
 \input{1introduction}
@@ -33,5 +49,6 @@
 \input{release}
 \input{apendixA}
 \input{apendixB}
+
 
 \input{end}

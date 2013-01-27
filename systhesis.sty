@@ -10,6 +10,7 @@
 \def\heiseiyear#1{\gdef\@heiseiyear{#1}}
 \def\makelabels{\global\labelstrue}
 
+
 \setlength{\textwidth}{15.9cm}
 \setlength{\oddsidemargin}{2mm}
 \setlength{\evensidemargin}{2mm}
@@ -17,6 +18,12 @@
 \setlength{\textheight}{24.0cm}
 \setlength{\footskip}{13mm}
 \setlength{\baselineskip}{40pt} 
+\setlength{\marginparwidth}{-100pt}
+\setlength{\marginparsep}{0pt}
+
+\pagestyle{fancy}
+\lhead{\rightmark}
+\cfoot{\thepage}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% THEOREM-LIKE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -75,6 +82,7 @@
 \endgroup
 }
 
+
 %表紙の定義
 \def\@maketitle{
 \thispagestyle{empty}
@@ -122,35 +130,21 @@
 \section*{\contentsname}
   \@starttoc{toc}
 \begin{flushleft}
-\bfseries 謝辞 \hspace{14.4cm} \bfseries  97 \\
+\bfseries 謝辞 \hspace{14.2cm} \bfseries  101\\
  \vspace{0.5cm}
-\bfseries 研究業績  \hspace{13.7cm} \bfseries  99\\
+\bfseries 研究業績  \hspace{13.5cm} \bfseries  103\\
  \vspace{0.5cm}
-\bfseries 参考文献  \hspace{13.5cm} \bfseries 100\\
+\bfseries 参考文献  \hspace{13.5cm} \bfseries 104\\
  \vspace{0.5cm}
-\bfseries 付録A  \hspace{13.8cm} \bfseries 109\\
+\bfseries 付録A  \hspace{13.8cm} \bfseries 114\\
  \vspace{0.5cm}
-\bfseries 付録B  \hspace{13.8cm} \bfseries 118\\
+\bfseries 付録B  \hspace{13.8cm} \bfseries 123\\
 \end{flushleft}
 \newpage
 \pagenumbering{arabic} 
 }
 
-%ラベルの定義
-\newcommand{\writelabels}{%
-\newpage
-\thispagestyle{empty}
-\setlength{\unitlength}{1mm}
-\begin{picture}(170,230)(20,0)
-\put(0,230){\dashbox{1}(165,15){\Huge\bf 平成 \@heiseiyear 年度 卒業制作}}
-\put(0,170){\dashbox{1}(165,55){\begin{minipage}{16cm}\begin{center}\Huge\bf \@title\end{center}\end{minipage}}}
-\put(0,140){\dashbox{1}(165,25){\Huge\bf \@author}}
-\put(0,110){\dashbox{1}(165,25){\Huge\bf 慶應義塾大学環境情報学部}}
-\put(0,0){\dashbox{1}(10,80){\hfill\begin{minipage}{6mm}{\LARGE\bf 卒業制作}\end{minipage}\hfill}}
-\put(30,0){\dashbox{1}(10,60){\hfill\begin{minipage}{6mm}{\begin{center}{\LARGE\bf 平成 \@heiseiyear 年度}\end{center}}\end{minipage}\hfill}}
-\put(60,0){\dashbox{1}(10,80){\hfill\begin{minipage}{6mm}{\LARGE\bf \@author}\end{minipage}\hfill}}
-\end{picture}
-}
+
 
 %ラベルの書き出し
 \let\enddocumentorg=\enddocument
