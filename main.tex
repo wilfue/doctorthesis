@@ -17,6 +17,9 @@
 \input{0abstract}
 
 %–ÚŸ‚ğo—Í
+\pagestyle{fancy}
+\lhead{\rightmark}
+%\cfoot{\thepage}
 \lhead{–ÚŸ}
 \rhead{–ÚŸ}
 \renewcommand{\headrulewidth}{0.5pt}
@@ -34,6 +37,8 @@
 \newpage
 \lhead{\leftmark}
 \rhead{\rightmark}
+\renewcommand{\chaptermark}[1]{\markboth{‘æ\ \normalfont\thechapter\ Í~#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection #1}{}}
 \pagenumbering{arabic}
 
 \input{1introduction}

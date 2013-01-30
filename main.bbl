@@ -1,11 +1,15 @@
 \begin{thebibliography}{10}
 
-\bibitem{Barabasi2002}
+\pagestyle{fancy}
+\lhead{参考文献}
+\rhead{参考文献}
+
+\bibitem{Barabashi2002}
 Albert-laszlo Barabasi, Jennifer Frangos.
 \newblock Linked: The New Science Of Networks Science Of Networks.
 \newblock Basic Books, pp.288, 2002.
 
-\bibitem{Barabasi2010}
+\bibitem{Barabashi2010}
 Albert-laszlo Barabasi.
 \newblock Bursts: The Hidden Patterns Behind Everything We Do, from Your E-mail to Bloody Crusades.
 \newblock Plume Reprint, pp.320, 2011.
