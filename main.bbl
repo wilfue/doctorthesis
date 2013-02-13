@@ -4,24 +4,29 @@
 \lhead{参考文献}
 \rhead{参考文献}
 
-\bibitem{Barabashi2002}
+\bibitem{Barabasi2002}
 Albert-laszlo Barabasi, Jennifer Frangos.
-\newblock Linked: The New Science Of Networks Science Of Networks.
+\newblock {\em Linked: The New Science of Networks Science of Networks.}
 \newblock Basic Books, pp.288, 2002.
 
-\bibitem{Barabashi2010}
+\bibitem{Barabasi2010}
 Albert-laszlo Barabasi.
-\newblock Bursts: The Hidden Patterns Behind Everything We Do, from Your E-mail to Bloody Crusades.
+\newblock {\em Bursts: The Hidden Patterns Behind Everything We Do, from Your E-mail to Bloody Crusades.}
 \newblock Plume Reprint, pp.320, 2011.
 
 \bibitem{Raskin2000}
 J Raskin.
-\newblock The humane interface: new directions for designing interactive systems.
+\newblock {\em The humane interface: new directions for designing interactive systems.}
 \newblock Addison-Wesley Professional, pp.256, 2000.
+
+\bibitem{Scholkopf1999}
+B. Scholkopf, C. J. C. Burges, A. J. Smola.
+\newblock {\em Advances in kernel methods : support vector learning.}
+\newblock The MIT Press, 1999.
 
 \bibitem{Yates1999}
 Ricardo Baeza-yates, Berthier Ribeiro-neto.
-\newblock  Modern Information Retrieval.
+\newblock  {\em Modern Information Retrieval.}
 \newblock  Addison Wesley, pp.544, 1999.
 
 
@@ -45,12 +50,12 @@ Michael W. Berry, Susan T. Dumais, Gavin W. O’Brien.
 \bibitem{Booth1967}
 Andrew D. Booth.
 \newblock A Law of Occurrences for Words of Low Frequency.
-\newblock  {\em Information and Control Vol.10, No.4}, pp.386-393, 1967.
+\newblock  {\em Information and Control, Vol.10, No.4}, pp.386-393, 1967.
 
 \bibitem{Breese1998}
-JS. Breese, D. Heckerman, C. Kadie.
+John S. Breese, David Heckerman, Carl Kadie.
 \newblock Empirical analysis of predictive algorithms for collaborative filtering.
-\newblock {\em Proceedings of the 14th conference on Uncertainty in artificial intelligence (UAI-98)}, pp.43-52, 1998.
+\newblock {\em Proceedings of the 14th conference on Uncertainty in artificial intelligence (UAI'98)}, pp.43-52, 1998.
 
 \bibitem{Cao2008}
 H. Cao, D. Jiang, J. Pei, Q. He, Z. Liao, E. Chen and H. Li.
@@ -80,7 +85,7 @@ Scott C. Deerwester, Susan T. Dumais, George W. Furnas, Thomas K. Landauer, Rich
 \bibitem{Dubinko2006}
 Micah Dubinko, Ravi Kumar, Joseph Magnani, Jasmine Novak, Prabhakar Raghavan, Andrew Tomkins.
 \newblock Visualizing tags over time.
-\newblock {\em World Wide Web Conference Series (WWW'06)} , pp.193-202, 2006.
+\newblock {\em World Wide Web Conference Series (WWW'06)}, pp.193-202, 2006.
 
 \bibitem{Gibson1998}
 Colonel Tim Gibson, Ethan L. Miller.
@@ -110,7 +115,7 @@ Simon Hermann.
 \bibitem{Heymann2008}
 Paul Heymann, Georgia Koutrika, and Hector Garcia-Molina.
 \newblock Can social bookmarking improve web search?
-\newblock  WSDM’08, 2008.
+\newblock  {\em Proceedings of the 2008 International Conference on Web Search and Data Mining (WSDM'08)}, 2008.
 
 \bibitem{Ishikawa2007}
 Yoshiharu Ishikawa, Mikine Hasegawa.
@@ -140,7 +145,7 @@ Jon Kleinberg and Mark Sandler.
 \bibitem{Liu2004}
 Fang Liu, Clement T. Yu, Weiyi Meng.
 \newblock Personalized Web Search For Improving Retrieval Effectiveness.
-\newblock {\em IEEE Transactions on Knowledge and Data Engineering (TKDE'04) , Vol.16, No.1}, pp.28-40, 2004.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering (TKDE'04), Vol.16, No.1}, pp.28-40, 2004.
 
 \bibitem{Loeb1992}
 S. Loeb, D. Terry.
@@ -200,7 +205,7 @@ Paul Resnick, Neophytos Iacovou, Mitesh Suchak, Peter Bergstrom, John Riedl.
 \bibitem{Resnick1997}
 Paul Resnick, Hal R. Varian.
 \newblock Recommender systems.
-\newblock {\em Communications of The ACM (CACM'97) , Vol.40, No.3}, pp.56-89, 1997.
+\newblock {\em Communications of the ACM (CACM'97) , Vol.40, No.3}, pp.56-89, 1997.
 
 \bibitem{Riecken2000}
 D. Riecken.
@@ -208,7 +213,7 @@ D. Riecken.
 \newblock {\em Communications of the ACM, Vol.43, No.8}, pp.26-158, 2000.
 
 \bibitem{Robertson1990}
-S.E. Robertson.
+S. E. Robertson.
 \newblock On term selection for query expansion.
 \newblock {\em Journal of documentation, Vol.46, No.4}, pp.359-364, 1990.
 
@@ -227,11 +232,6 @@ G. Salton, A. Wong, C. S. Yang.
 \newblock A vector space model for automatic indexing.
 \newblock {\em Communications of the ACM, Vol.18, No.11}, pp.613-620, 1975.
 
-\bibitem{Scholkopf1999}
-B. Scholkopf, C. J. C. Burges, A. J. Smola.
-\newblock Advances in kernel methods : support vector learning.
-\newblock {\em The MIT Press}, 1999.
-
 \bibitem{Shneiderman1994}
 Ben Shneiderman.
 \newblock Dynamic Queries for Visual Information Seeking.
@@ -245,7 +245,7 @@ Craig A. N. Soules, Gregory R. Ganger.
 \bibitem{Strange1992}
 Stephen Strange.
 \newblock Analysis of Long-Term UNIX File Access Patterns for Application.
-\newblock {\em Technical Report, UCB/CSD 92/700, University of California, Berkeley}, 1992.
+\newblock {\em Technical Report, UCB/CSD 92/700}, University of California, Berkeley, 1992.
 
 \bibitem{Takahashi2008}
 Tsubasa Takahashi, Hiroyuki Kitagawa.
@@ -289,7 +289,10 @@ Z. Zhang, O. Nasraoui.
 
 
 
-
+\bibitem{Eda2009}
+枝洋樹, 林信行, 小林弘人, 津田大介, 武田徹, 高須賀宣, 岡野原大輔, 片瀬京子, 高橋秀和, 亀津敦, 日経BP社出版局.
+\newblock Twitterの衝撃 - 140文字がビジネスからメディアまで変える.
+\newblock 日経BP社, pp.208, 2009.
 
 \bibitem{Kita1999}
 北研二, 辻井潤一.
@@ -306,7 +309,6 @@ Z. Zhang, O. Nasraoui.
 \newblock ものづくり白書〈2007年版〉.
 \newblock  ぎょうせい, 2007.
 
-
 \bibitem{Tsuda2000}
 津田宏治.
 \newblock サポートベクターマシンとは何か.
@@ -322,23 +324,17 @@ Z. Zhang, O. Nasraoui.
 \bibitem{Asahi2009}
 旭直人, 山本岳洋, 中村聡史, 田中克己.
 \newblock 挟みこむ検索: 2オブジェクトからの補間オブジェクト発見.
-\newblock 情報処理学会研究報告. データベース・システム研究会報告 2009-DBS-149(4), pp.1-8, 2009.
+\newblock 情報処理学会研究報告. データベース・システム研究会報告 2009-DBS-149 (4), pp.1-8, 2009.
   
 \bibitem{Chinda2009}
 珍田計幸, 大沢英一.
 \newblock 弱い紐帯の概念を利用したWWW上からの情報抽出手法の提案.
-\newblock 電子情報通信学会技術研究報告. AI, 人工知能と知識処理 108(456), pp.99-104, 2009.
+\newblock 電子情報通信学会技術研究報告. AI, 人工知能と知識処理 108 (456), pp.99-104, 2009.
 
 \bibitem{Dairiki2008}
 大力慶祐, 大向一輝, 武田英明.
 \newblock ソーシャルブックマークにおけるイノベータに注目した情報推薦手法の提案.
 \newblock  人工知能学会第 22 回全国大会 (JSAI2008), 2008.
-
-\bibitem{Eda2009}
-枝洋樹, 林信行, 小林弘人, 津田大介, 武田徹, 高須賀宣, 岡野原大輔, 片瀬京子, 高橋秀和, 亀津敦, 日経BP社出版局.
-\newblock Twitterの衝撃 - 140文字がビジネスからメディアまで変える.
-\newblock 日経BP社, pp.208, 2009.
-
 
 \bibitem{Fukuhara1998}
 福原知宏.
@@ -368,7 +364,7 @@ Z. Zhang, O. Nasraoui.
 \bibitem{Iwane2008}
 岩根良輔 , 藤本典幸 , 萩原兼一.
 \newblock 協調フィルタリングを用いて個人の嗜好を反映するレシピ検索手法の提案.
-\newblock 情報処理学会研究報告. MPS, 数理モデル化と問題解決研究報告 2008(126), pp.163-166, 2008.
+\newblock 情報処理学会研究報告. MPS, 数理モデル化と問題解決研究報告 2008 (126), pp.163-166, 2008.
 
 \bibitem{Kamishima2008}
 神嶌敏弘.
@@ -403,7 +399,7 @@ Z. Zhang, O. Nasraoui.
 \bibitem{Kensou2004}
 兼宗進.
 \newblock  検索エンジンの検索アルゴリズム.
-\newblock  情報の科学と技術, Vol.54, No.2, pp.78-83.
+\newblock  情報の科学と技術, Vol.54, No.2, pp.78-83, 2004.
 
 \bibitem{Kita2010}
 木田巧, 豊田正史, 喜連川優.
@@ -413,7 +409,7 @@ Z. Zhang, O. Nasraoui.
 \bibitem{Koutani2007}
 甲谷優, 湯本高行, 小山聡, 田中克己.
 \newblock Web ページに対する典型的なクエリの発見.
-\newblock 情報処理学会研究報告. データベース・システム研究会報告 2007(65), pp.49-54, 2007.
+\newblock 情報処理学会研究報告. データベース・システム研究会報告 2007 (65), pp.49-54, 2007.
 
 \bibitem{Kurihara2004}
 栗原聡, 廣津登志夫, 高田敏弘, 明石修, 菅原俊治.
@@ -438,7 +434,7 @@ Z. Zhang, O. Nasraoui.
 \bibitem{Matsumoto2001}
 松本知弥子, 馬強, 田中克己.
 \newblock Webページのローカル度検出に基づく情報フィルタリング.
-\newblock  情報処理学会研究報告,Vol.125, No.36(DBWS2001), pp.273-280, 2001.
+\newblock  情報処理学会研究報告,Vol.125, No.36 (DBWS2001), pp.273-280, 2001.
 
 \bibitem{Morita1996}
 森田昌宏 , 速水治夫.
@@ -450,11 +446,10 @@ Z. Zhang, O. Nasraoui.
 \newblock クリックログ解析による情報要求ベースの検索結果ランキング.
 \newblock 日本データベース学会論文誌, Vol.7, No.4, pp.37-42, 2009.
 
-
 \bibitem{Nakamura2009}
 中村聡史, 田中克己.
 \newblock 印象に基づく動画検索.
-\newblock 情報処理学会研究報告. HCI, ヒューマンコンピュータインタラクション研究会報告 2009,Vol.5, pp.77-84, 2009.
+\newblock 情報処理学会研究報告. HCI, ヒューマンコンピュータインタラクション研究会報告 2009, Vol.5, pp.77-84, 2009.
 
 \bibitem{Nakayama2003}
 中山晶一朗.
@@ -469,12 +464,12 @@ Z. Zhang, O. Nasraoui.
 \bibitem{Ohishi2009}
 大石哲也, 倉元俊介, 峯恒憲, 長谷川隆三, 藤田博, 越村三幸.
 \newblock 関連単語抽出アルゴリズムを用いたweb検索クエリの生成.
-\newblock  電子情報通信学会論文誌 D Vol.J92-D, No.3, pp.281-292, 2009.
+\newblock  電子情報通信学会論文誌 D Vol.J 92-D, No.3, pp.281-292, 2009.
 
 \bibitem{Ohtsuka2005}
 大塚真吾, 豊田正史, 喜連川優.
 \newblock 大域ウェブアクセスログを用いた関連語の発見法に関する一考察.
-\newblock 情報処理学会論文誌：データベース, Vol.46, No.SIG8(TOD26), pp.82-92.
+\newblock 情報処理学会論文誌：データベース, Vol.46, No.SIG8 (TOD26), pp.82-92, 2005.
 
 \bibitem{Ohtsuka2006}
 大塚真吾, 喜連川優.
@@ -484,7 +479,7 @@ Z. Zhang, O. Nasraoui.
 \bibitem{Okumura2004}
 奥村学, 南野朋之, 藤木稔明, 鈴木泰裕.
 \newblock  blogページの自動収集と監視に基づくテキストマイニング.
-\newblock  人工知能学会, セマンティックウェブとオントロジー研究会, SIG-SWO-A401-01.
+\newblock  人工知能学会, セマンティックウェブとオントロジー研究会, SIG-SWO-A401-01, 2004.
 
 \bibitem{Sasaki2007}
 佐々木祥, 宮田高道, 稲積泰宏, 小林亜樹, 酒井善則.
@@ -514,12 +509,12 @@ Z. Zhang, O. Nasraoui.
 \bibitem{Takei2004}
 竹井潔.
 \newblock 情報の価値とライフサイクル管理.
-\newblock 聖学院大学論叢, Vol.17, No.1, pp.11-31.
+\newblock 聖学院大学論叢, Vol.17, No.1, pp.11-31, 2004.
 
 \bibitem{Uehara1995}
 上原征彦, 福田亮.
 \newblock  ロングセラーの論理とその戦略.
-\newblock  マーケティング・ジャーナル, 第59号, pp.6-15.
+\newblock  マーケティング・ジャーナル, 第59号, pp.6-15, 1995.
 
 \bibitem{Uenda2008}
 上田真由美, 石原和幸, 平野靖, 梶田将司, 間瀬健二.
@@ -544,7 +539,7 @@ Z. Zhang, O. Nasraoui.
 \bibitem{Yoshida2007}
 吉田大我, 小山聡, 中村聡史, 田中克己.
 \newblock Web 検索結果におけるキーワード出現相関の可視化と対話的な質問変換.
-\newblock  電子情報通信学会第18回データ工学ワークショップ(DEWS2007), pp.1-8, 2007.
+\newblock  電子情報通信学会第18回データ工学ワークショップ (DEWS2007), pp.1-8, 2007.
 
 \bibitem{Yoshida2010}
 吉田光男, 乾孝司, 山本幹雄.
@@ -557,11 +552,19 @@ Amazon.com.
 
 \bibitem{Bing}
 Microsoft.
-\newblock Bing. http://www.bing.com/（参照 2012-12-13）.
+\newblock Bing. http://www.bing.com/, （参照 2012-12-13）.
+
+\bibitem{Bob&Anjie}
+株式会社エルネット.
+\newblock ボブとアンジー. http://www.bob-an.com/, (参照 2013-2-12）.
 
 \bibitem{Buzzurl}
 株式会社ECナビ.
 \newblock Buzzurl [バザール]. http://buzzurl.jp/, （参照 2012-12-13）.
+
+\bibitem{Coockpad}
+COOCKPAD.
+\newblock レシピ検索No.1／料理レシピ載せるなら クックパッド. http://cookpad.com/, (参照 2013-2-12）.
 
 \bibitem{Delicious}
 Yahoo!
@@ -573,31 +576,39 @@ Digg.
 
 \bibitem{Flickr}
 Yahoo!.
-\newblock Flickr. http://www.flickr.com/（参照 2012-12-13）.
+\newblock Flickr. http://www.flickr.com/, （参照 2012-12-13）.
 
 \bibitem{Google}
 Google.
-\newblock Google. http://www.google.com/（参照 2012-12-13）.
+\newblock Google. http://www.google.com/, （参照 2012-12-13）.
 
 \bibitem{GoogleInsights}
 Google.
-\newblock Google Insights for Search. http://www.google.com/insights/search/（参照 2012-5-31）.
+\newblock Google Insights for Search. http://www.google.com/insights/search/, （参照 2012-5-31）.
+
+\bibitem{GoogleTrend}
+Google.
+\newblock Google トレンド. http://www.google.com/trends/, （参照 2013-1-10）.
 
 \bibitem{Hatebu}
 株式会社はてな.
-\newblock はてなブックマーク. http://b.hatena.ne.jp/, （参照 2012-12-26）.
+\newblock はてなブックマーク. http://b.hatena.ne.jp/ , （参照 2012-12-26）.
 
 \bibitem{Lingua}
 Takeshi Miki.
-\newblock Lingua-JA-Expand. http://search.cpan.org/~miki/Lingua-JA-Expand/（参照 2012-12-13）.
+\newblock Lingua-JA-Expand. http://search.cpan.org/~miki/Lingua-JA-Expand/, （参照 2012-12-13）.
+
+\bibitem{Sinema}
+JTNEWS.
+\newblock みんなのシネマレビュー. http://www.jtnews.jp/, （参照 2013-2-12）.
+
+\bibitem{Reflexa}
+Preferred Infrastructure.
+\newblock 連想検索エンジンreflexa. http://labs.preferred.jp/reflexa/, （参照 2012-12-13）.
 
 \bibitem{Tabelog}
 Kakaku.com.
 \newblock 食べログ ランキングと口コミで探せるグルメサイト. http://tabelog.com/, （参照 2012-12-26）.
-
-\bibitem{Reflexa}
-Preferred Infrastructure.
-\newblock 連想検索エンジンreflexa. http://labs.preferred.jp/reflexa/（参照 2012-12-13）.
 
 \bibitem{Twitter}
 Twitter.
@@ -609,12 +620,6 @@ Twitter.
 
 \bibitem{YouTube}
 Google.
-\newblock YouTube. http://www.youtube.com/（参照 2012-12-13）.
-
-
-
-
-
-
+\newblock YouTube. http://www.youtube.com/, （参照 2012-12-13）.
 
 \end{thebibliography}
